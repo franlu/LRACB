@@ -5,7 +5,7 @@
 
 package LRACB;
 
-import java.util.Date;
+
 
 /**
  *
@@ -14,20 +14,5 @@ import java.util.Date;
 public class ClasificacionJugador {
 
 
-    void definirJornada(Date listaDeFechas ){
-
-    }
-
-    void incluiJugador(){
-
-    }
-    Jornada buscarJornada(int numJornada){
-        Jornada j = new Jornada();
-        return j;
-    }
-    boolean existeJugador(String dniPass){
-
-        boolean existe = true;
-        return existe;
-    }
+    
 }
