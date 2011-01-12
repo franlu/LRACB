@@ -6,6 +6,7 @@
 package LRACB;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,10 +19,22 @@ public class LRACB {
 
     }
 
-    void incluiJugador(String nombClub,String dniPass, String nomJugador, 
+    void incluirJugador(String nombClub,String dniPass, String nomJugador,
                        Date fechaNac, double altura, double peso, String posicion,
                        String nacionalidad, int numero){
 
+
+    }
+
+    void anotarResultado(int numJornada, Date dia, String nombClubLocal, int puntosLocal, int puntosVisi){
+
+
+    }
+
+    List resultadoJugadores(int numJornada, Date dia, String nombClubLocal){
+
+        List aux = null;
+        return aux;
 
     }
     Jornada buscarJornada(int numJornada){
