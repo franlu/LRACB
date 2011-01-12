@@ -34,6 +34,7 @@ public class LRACB {
     List resultadoJugadores(int numJornada, Date dia, String nombClubLocal){
 
         List aux = null;
+        
         return aux;
 
     }
