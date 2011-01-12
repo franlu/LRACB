@@ -18,7 +18,10 @@ public class LRACB {
 
     }
 
-    void incluiJugador(){
+    void incluiJugador(String nombClub,String dniPass, String nomJugador, 
+                       Date fechaNac, double altura, double peso, String posicion,
+                       String nacionalidad, int numero){
+
 
     }
     Jornada buscarJornada(int numJornada){
