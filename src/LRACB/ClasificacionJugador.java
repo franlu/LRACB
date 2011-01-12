@@ -5,6 +5,8 @@
 
 package LRACB;
 
+import java.util.Date;
+
 /**
  *
  * @author fran
@@ -12,6 +14,13 @@ package LRACB;
 public class ClasificacionJugador {
 
 
+    void definirJornada(Date listaDeFechas ){
+
+    }
+
+    void incluiJugador(){
+
+    }
     Jornada buscarJornada(int numJornada){
         Jornada j = new Jornada();
         return j;
