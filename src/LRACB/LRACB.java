@@ -39,6 +39,25 @@ public class LRACB {
            auxNombClub[1] = nombClubVisitante;
   
 
+           Club club = buscarClub(auxNombClub[i]);
+           // Lineas en folio de apuntes de clase
+           // before search object Club
+           int ganados = resultadoAnterior[0];
+           int perdidos = resultadoAnterior[1];
+           int puntosAFavor = resultadoAnterior[2];
+           int puntosEnContra = resultadoAnterior[3];          
+ 
+           if (i==1){ // Local
+            if (puntosLocal > puntosVisitante)
+                ganados++;
+            else
+                perdidos++; 
+
+
+           } 
+           
+
+           jor1.definirClasificacion(club,ganados,perdidos,puntosAFavor,puntosEnContra);
 
     }
 
