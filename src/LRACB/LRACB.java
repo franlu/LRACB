@@ -26,7 +26,18 @@ public class LRACB {
 
     }
 
-    void anotarResultado(int numJornada, Date dia, String nombClubLocal, int puntosLocal, int puntosVisi){
+    void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
+
+       String nombClubVisitante:
+       Jornada jor1 = buscarJornada(numJornada);
+           jor1.anotarResultado(....);
+           nombClubVisitante = obtenerNombClubVisitante(....);
+           if (numJornada != 1)
+               Jornada jorAnterior = buscarJornada(numJornada -1);
+           String[] auxNombClub = new String[2];
+           auxNombClub[0] = nombClubLocal;
+           auxNombClub[1] = nombClubVisitante;
+  
 
 
     }
