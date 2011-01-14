@@ -5,7 +5,8 @@
 
 package LRACB;
 
-import java.lang.String;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,5 +18,5 @@ public class Club {
     private String entrenador;
     private String pabellon;
 
-    private Map<<String,Jugador>> jugadores;
+    private Map<String,Jugador> jugadores = new HashMap<String,Jugador>();
 }
