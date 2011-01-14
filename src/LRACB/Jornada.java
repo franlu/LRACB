@@ -41,16 +41,21 @@ class Jornada {
 
     }
 
-    void anotarResultado(){
+    void anotarResultado(Calendar dia, String nombClubLocal,int puntosLocal, int puntosVisi){
     }
 
-    String obtenerNombClubVisi(){}
+    String obtenerNombClubVisi(Calendar dia, String nombClubLocal){
 
-    void definirClasificacionClub(){}
 
-    ArrayList resultadoJugadores(){}
+    }
 
-    private Fecha buscarFecha(){}
+    void definirClasificacionClub(Club cl, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){
+
+    }
+
+    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal ){}
+
+    private Fecha buscarFecha(Calendar dia){}
     private ClasificacionClub buscarCClub(String nombClub){}
 
     ArrayList verPartidoDeJornada(){}
@@ -58,7 +63,8 @@ class Jornada {
     void ordenarPorPartidosGanados(){}
     ArrayList rankingAnotadores(){}
     void ordenaPorRendimiento(){}
-    void anotarResultadoJugador(){}
-    void incluirClasificacion(){}
-    void definirPartido(){}
+    void anotarResultadoJugador(Calendar dia,String nombClubLocal, String dniPas,
+                                double minutosJugados, int intentos, int puntosConseguidos){}
+    void incluirClasificacion(Jugador jug, double minutosTotales, int intentosTotales, int puntosTotales){}
+    void definirPartido(Calendar dia, Club cl, Club cv, Calendar hora,String TVEmite){}
 }
