@@ -5,10 +5,17 @@
 
 package LRACB;
 
+import java.lang.String;
+
 /**
  *
  * @author fran
  */
 public class Club {
 
+    private String nombre;
+    private String entrenador;
+    private String pabellon;
+
+    private Map<<String,Jugador>> jugadores;
 }
