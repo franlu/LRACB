@@ -11,4 +11,9 @@ package LRACB;
  */
 public class Jornada {
 
+    private int numJornada;
+    private Fecha fecha;
+    private ClasificacionClub cClub;
+    private ClasificacionJugador cJugador;
+
 }
