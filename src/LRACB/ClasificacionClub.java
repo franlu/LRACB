@@ -11,4 +11,12 @@ package LRACB;
  */
 public class ClasificacionClub {
 
+    private int partidosGanados;
+    private int partidosPerdidos;
+    private int puntosAFavor;
+    private int puntosEnContra;
+
+    private Jornada jornada;
+    private Club club;
+
 }
