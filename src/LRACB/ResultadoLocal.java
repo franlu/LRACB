@@ -1,14 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package LRACB;
 
 /**
  *
  * @author fran
  */
-public class ResultadoLocal {
+class ResultadoLocal {
 
+    private int puntos;
+
+    private Club club;
+    //crear
+    ResultadoLocal(Club cl){}
+    void modificarResultado(int puntosLocal){}
+    ArrayList obtenerResultadoNomClub(){}
+    String obtenerNombClubLocal(){}
+    String obtenerPabellon(){}
+    Jugador obtenerJugador(String dniPas){}
+    boolean perteneceJugador(String dniPas){}
+    boolean participaClub(Club cl, Club cv){}
 }
