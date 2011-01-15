@@ -26,7 +26,13 @@ class Jugador {
 
     Jugador(String dniPas, String nombre, Calendar fechaNac, double altura, double peso, String posicion, String nacionalidad , int numero, Club cl){}
     int obtenerNumero(){}
-    String obtenerNombre(){}
+    
+    //String obtenerNombre(){}
+    String getNombre(){
+
+        return this.nombre;
+
+    }
     String obtenerPosicion(){}
     ArrayList obtenerDatosJugador(){}
     String obtenerNombClub(){}
