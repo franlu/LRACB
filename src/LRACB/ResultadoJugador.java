@@ -7,8 +7,17 @@ package LRACB;
 
 /**
  *
- * @author fran
+ * @author Francisco Javier Lucena Lucena
  */
-public class ResultadoJugador {
+class ResultadoJugador {
+
+    private double minutosJugados;
+    private int puntos;
+    private int intentos;
+
+    private Jugador jugador;
+
+    ArrayList obtenerResultadoJugador(){}
+    ResultadoJugador(Jugador jug, double minutosJugados, int intentos, int puntosConseguidos){}
 
 }
