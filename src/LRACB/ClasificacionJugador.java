@@ -1,18 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package LRACB;
 
 
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
-public class ClasificacionJugador {
+class ClasificacionJugador {
 
+    private int puntosTotales;
+    private int intentosTotales;
+    private double minutosTotales;
+    private double rendimiento;
+
+    private Jugador jugador;
+    private Jornada jornada;
+
+    ArrayList obtenerDatosClasificacion(){}
+    ArrayList obtenerDatosJornada(){}
+    ClasificacionJugador(Jugador jug, Jornada jor, double minutosTotales, int intentosTotales, int putnosTotales){}
 
     
 }
