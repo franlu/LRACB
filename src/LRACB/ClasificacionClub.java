@@ -7,9 +7,9 @@ package LRACB;
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
-public class ClasificacionClub {
+class ClasificacionClub {
 
     private int partidosGanados;
     private int partidosPerdidos;
@@ -19,4 +19,8 @@ public class ClasificacionClub {
     private Jornada jornada;
     private Club club;
 
+
+    void crear(Club club, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){}
+    ArrayList obtenerResultados(){}
+    ArrayList obtenerDatosClasificacion(){}
 }
