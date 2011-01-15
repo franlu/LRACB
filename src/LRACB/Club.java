@@ -1,7 +1,9 @@
 
 package LRACB;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -16,6 +18,7 @@ class Club {
 
     private Map<String,Jugador> jugadores = new HashMap<String,Jugador>();
 
+    //void crear(String nombre, String entrenador, String pabellon )
     Club(String nombre, String entrenador, String pabellon){
 
         this.nombre = nombre;
@@ -23,6 +26,7 @@ class Club {
         this.pabellon = pabellon;
     }
 
+    //String obtenerNombre(){}
     String getNombre(){
 
         return this.nombre;
@@ -35,6 +39,7 @@ class Club {
 
     }
 
+    //String obtenerPabellon(){}
     String getPabellon(){
 
         return this.pabellon;
@@ -59,9 +64,25 @@ class Club {
 
     }
 
-    void crear(String nombre, String entrenador, String pabellon ){}
-    void ficharJugador(Jugador ju){}
-    String obtenerNombre(){}
-    String obtenerPabellon(){}
-    ArrayList jugadoresDeClub(){}
+    
+    void ficharJugador(Jugador ju){
+
+        (this.jugadores).put(ju.getNombre(),ju);
+
+    }
+    
+    
+    ArrayList jugadoresDeClub(){
+
+        ArrayList jug = new ArrayList();
+        Iterator it = (this.jugadores).entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            jug.add(e);
+        }
+        
+        return jug;
+
+    }
 }
