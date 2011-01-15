@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class LRACB {
 
-    private Map<int,Jornada> Jornadas = new HashMap<int,Jornada>();
+    private Map< int,Jornada> Jornadas = new HashMap< int,Jornada>();
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
 
