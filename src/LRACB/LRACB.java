@@ -5,8 +5,11 @@
 
 package LRACB;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,19 +17,23 @@ import java.util.List;
  */
 public class LRACB {
 
-    void definirJornada(Calendar listaDeFechas ){
+    private Map<int,Jornada> Jornadas = new HashMap<int,Jornada>();
+    private Map<String,Club> Clubes = new HashMap<String,Club>();
+    private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
+
+    public void definirJornada(Calendar listaDeFechas ){
 
 
     }
 
-    void incluirJugador(String nombClub,String dniPass, String nomJugador,
+    public void incluirJugador(String nombClub,String dniPass, String nomJugador,
                        Calendar fechaNac, double altura, double peso, String posicion,
                        String nacionalidad, int numero){
 
 
     }
 
-    void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
+    public void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
 
        String nombClubVisitante;
        Jornada jor1 = buscarJornada(numJornada);
@@ -61,21 +68,37 @@ public class LRACB {
 
     }
 
-    List resultadoJugadores(int numJornada, Date dia, String nombClubLocal){
+    public ArrayList resultadoJugadores(int numJornada, Date dia, String nombClubLocal){
 
-        List aux = null;
+        ArrayList aux = null;
         
         return aux;
 
     }
-    Jornada buscarJornada(int numJornada){
-        Jornada j = new Jornada();
+    private Jornada buscarJornada(int numJornada){
+        Jornada j;
         return j;
     }
-    boolean existeJugador(String dniPass){
+    private Club buscarClub(String nombClub, ){ // Errata en diagrama diseño
+
+    }
+    private boolean existeJugador(String dniPass){
 
         boolean existe = true;
         return existe;
     }
 
+    public ArrayList verPartidoDeJornada(int numJornada){}
+    public ArrayList verJugadoresDeClub(String nombClub){}
+    public ArrayList clasificacionGeneral(int numJornada){}
+    public ArrayList rankingAnotadores(int numJornada){}
+    public ArrayList evolucionJugador(String dniPas){}
+    
+    public void anotarResultadoJugador(int numJornada, Date dia,String nombClubLocal,
+            String dniPas,double minutosJugados, int intentos,int puntosConseguidos){}
+    public void definirPartido(int numJornada, Date dia,String nombClubLocal,String nombClubVisi,
+            Date hora, String TVEmite){}
+    public void incluirClub(String nombre, String entrenador, String pabellon){}
+
+    private boolean existeClub(String nombre){}
 }
