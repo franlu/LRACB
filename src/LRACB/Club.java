@@ -34,6 +34,27 @@ class Club {
         this.pabellon = pabellon;
     }
 
+    void ficharJugador(Jugador ju){
+
+        (this.jugadores).put(ju.getNombre(),ju);
+
+    }
+
+
+    ArrayList jugadoresDeClub(){
+
+        ArrayList jug = new ArrayList();
+        Iterator it = (this.jugadores).entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry)it.next();
+            jug.add(e);
+        }
+
+        return jug;
+
+    }
+    
     //String obtenerNombre(){}
     String getNombre(){
 
@@ -73,24 +94,5 @@ class Club {
     }
 
     
-    void ficharJugador(Jugador ju){
-
-        (this.jugadores).put(ju.getNombre(),ju);
-
-    }
     
-    
-    ArrayList jugadoresDeClub(){
-
-        ArrayList jug = new ArrayList();
-        Iterator it = (this.jugadores).entrySet().iterator();
-
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry)it.next();
-            jug.add(e);
-        }
-        
-        return jug;
-
-    }
 }
