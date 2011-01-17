@@ -76,7 +76,7 @@ public class LRACB {
            } 
            
 
-           jor1.definirClasificacion(club,ganados,perdidos,puntosAFavor,puntosEnContra);
+           jor1.definirClasificacionClub(club,ganados,perdidos,puntosAFavor,puntosEnContra);
 
     }
 
