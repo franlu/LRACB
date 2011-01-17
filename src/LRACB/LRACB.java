@@ -80,11 +80,15 @@ public class LRACB {
 
     }
 
-    public ArrayList resultadoJugadores(int numJornada, Date dia, String nombClubLocal){
-
-        ArrayList aux = null;
+    public ArrayList resultadoJugadores(int numJornada, Calendar dia, String nombClubLocal){
         
-        return aux;
+        ArrayList resultado1;
+        Jornada jor;
+
+            jor = (this.Jornadas).get(numJornada);
+            resultado1 = jor.resultadoJugadores(dia, nombClubLocal);
+        
+        return resultado1;
 
     }
     private Jornada buscarJornada(int numJornada){
