@@ -1,4 +1,12 @@
-
+/*
+* LRACB
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
 package LRACB;
 
 import java.util.ArrayList;
