@@ -5,6 +5,9 @@
 
 package LRACB;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Francisco Javier Lucena Lucena
@@ -22,7 +25,8 @@ class Jugador {
     
     private Club club;
 
-    private Map<double,ClasifiacionJugador> clasificacionJugador = new HashMap<>(double,ClasifiacionJugador);
+    //int numjornada, para agilizar busqueda de jornadas
+    private Map<int,ClasificacionJugador> clasificacionJugador = new HashMap<int,ClasificacionJugador>();
 
     Jugador(String dniPas, String nombre, Calendar fechaNac, double altura, 
             double peso, String posicion, String nacionalidad , int numero,
