@@ -53,7 +53,18 @@ class Jornada {
 
     }
 
-    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal ){}
+    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal ){
+
+        ArrayList resultado = new ArrayList();
+        ArrayList resultado1 = new ArrayList();
+
+            resultado.add(this.numJornada);
+            resultado1 = (this.fecha).resultadoJugadores(dia, nombClubLocal);
+            resultado.add(resultado1);
+
+            return resultado;
+
+    }
 
     private Fecha buscarFecha(Calendar dia){}
     private ClasificacionClub buscarCClub(String nombClub){}
