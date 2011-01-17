@@ -1,7 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* LRACB
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
 
 package LRACB;
 
