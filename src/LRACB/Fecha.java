@@ -1,8 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+* LRACB
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
 package LRACB;
 
 import java.util.ArrayList;
@@ -13,11 +17,12 @@ import java.util.Map;
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
 class Fecha {
 
     private Calendar dia;
+    //hora,partido
     private Map<Calendar,Partido> Partidos = new HashMap<Calendar,Partido>();
 
     void crear(Calendar dia){}
@@ -27,9 +32,23 @@ class Fecha {
 
     }
     String obtenerNombClubVisi(String nombClubLocal){}
+
     void anotarResultado(int puntosLocal, int puntosVisi){}
-    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal){}
-    private Partido buscarPartido(String nombClubLocal){}
+
+    // en diagrama de colaboracion no aparece el parametro dia
+    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal){
+
+        Partido par = buscarPartido(nombClubLocal);
+        ArrayList resultado1 = par.resultadoJugadores();
+
+        return resultado1;
+
+    }
+    private Partido buscarPartido(String nombClubLocal){
+
+
+
+    }
     ArrayList partidosDeUnDia(){}
     void anotarResultadoJugador(String nombClubLocal, String dniPas, double minutosJugados,
             int intentos, int puntosConseguidos){}
