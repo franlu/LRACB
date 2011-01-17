@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package LRACB;
 
 import java.util.ArrayList;
@@ -28,7 +23,7 @@ class ResultadoJugador {
     
     
     }
-
+    // En DCDiseño se le pasas un nc (creo que nombre club)
     ArrayList obtenerResultadoJugador(){
 
         ArrayList resultado = new ArrayList();
