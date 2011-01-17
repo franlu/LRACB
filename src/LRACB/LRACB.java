@@ -92,16 +92,22 @@ public class LRACB {
 
     }
     private Jornada buscarJornada(int numJornada){
-        Jornada j;
-        return j;
+        
+        return (this.Jornadas).get(numJornada);
     }
-    private Club buscarClub(String nombClub, ){ // Errata en diagrama diseño
+
+    // Errata en diagrama diseño
+    private Club buscarClub(String nombClub){ 
+
+        return (this.Clubes).get(nombClub);
 
     }
-    private boolean existeJugador(String dniPass){
 
-        boolean existe = true;
-        return existe;
+    //true si existe
+    //false si no existe
+    private boolean existeJugador(String dniPas){
+
+        return (this.Jugadores).containsKey(dniPas);
     }
 
     public ArrayList verPartidoDeJornada(int numJornada){}
@@ -116,5 +122,9 @@ public class LRACB {
             String nombClubVisi, Date hora, String TVEmite){}
     public void incluirClub(String nombre, String entrenador, String pabellon){}
 
-    private boolean existeClub(String nombre){}
+    private boolean existeClub(String nombre){
+
+        return (this.Clubes).containsKey(nombre);
+
+    }
 }
