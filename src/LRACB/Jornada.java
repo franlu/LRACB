@@ -12,6 +12,8 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -21,8 +23,8 @@ class Jornada {
 
     private int numJornada;
     private Fecha fecha;
-    private ClasificacionClub cClub;
-    private ClasificacionJugador cJugador;
+    private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
+    private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
 
     Jornada(int numJornada, Calendar listaDeFechas){
     
@@ -49,7 +51,7 @@ class Jornada {
     void anotarResultado(Calendar dia, String nombClubLocal,int puntosLocal, int puntosVisi){
     }
 
-    String obtenerNombClubVisi(Calendar dia, String nombClubLocal){
+    String obtenerNombClubVisitante(Calendar dia, String nombClubLocal){
 
 
     }
