@@ -1,3 +1,12 @@
+/*
+* ResultadoLocal
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
 package LRACB;
 
 /**
@@ -10,7 +19,11 @@ class ResultadoLocal {
 
     private Club club;
     //crear
-    ResultadoLocal(Club cl){}
+    ResultadoLocal(Club cl){
+
+        this.club = cl;
+
+    }
     void modificarResultado(int puntosLocal){}
     ArrayList obtenerResultadoNomClub(){}
     String obtenerNombClubLocal(){}
