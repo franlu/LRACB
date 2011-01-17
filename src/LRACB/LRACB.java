@@ -49,15 +49,23 @@ public class LRACB {
 
        String nombClubVisitante;
        Jornada jor1 = buscarJornada(numJornada);
-           jor1.anotarResultado(....);
-           nombClubVisitante = obtenerNombClubVisitante(....);
-           if (numJornada != 1)
-               Jornada jorAnterior = buscarJornada(numJornada -1);
+           jor1.anotarResultado(dia,nombClubLocal,puntosLocal,puntosVisi);
+           nombClubVisitante = jor1.obtenerNombClubVisitante(dia,nombClubLocal);
+           if (numJornada != 1){
+               Jornada jorAnterior = buscarJornada(numJornada-1);
+           }
            String[] auxNombClub = new String[2];
            auxNombClub[0] = nombClubLocal;
            auxNombClub[1] = nombClubVisitante;
   
-
+           for(int i=0; i<1;i++){
+                int[] resultadoAnterior;
+                if (numJornada != 1){
+                    resultadoAnterior = jorAnterior.obternerResultado(auxNombClub[i]);
+                }
+                else
+                    resultadoAnterior = [0,0,0,0];
+           }
            Club club = buscarClub(auxNombClub[i]);
            // Lineas en folio de apuntes de clase
            // before search object Club
