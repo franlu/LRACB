@@ -1,7 +1,13 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+* LRACB
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
+
 
 package LRACB;
 
@@ -13,7 +19,7 @@ import java.util.Map;
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
 public class LRACB {
 
@@ -21,16 +27,22 @@ public class LRACB {
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
 
-    public void definirJornada(Calendar listaDeFechas ){
+    public void definirJornada(Calendar listaDeFechas){
 
 
     }
 
-    public void incluirJugador(String nombClub,String dniPass, String nomJugador,
+    public void incluirJugador(String nombClub,String dniPas, String nomJugador,
                        Calendar fechaNac, double altura, double peso, String posicion,
-                       String nacionalidad, int numero){
+                       String nacionalidad, int numero) throws LracbEx {
 
-
+        if ((this.Jugadores).containsKey(dniPas))
+            throw new LracbEx("Ya existe el Jugador con el DNI introducido");
+        Club club = (this.Clubes).get(nombClub);
+        Jugador ju = new Jugador(dniPas,nomJugador,fechaNac,altura,peso,posicion,
+                nacionalidad,numero,club);
+        club.ficharJugador(ju);
+        (this.Jugadores).put(dniPas, ju);
     }
 
     public void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
@@ -96,8 +108,8 @@ public class LRACB {
     
     public void anotarResultadoJugador(int numJornada, Date dia,String nombClubLocal,
             String dniPas,double minutosJugados, int intentos,int puntosConseguidos){}
-    public void definirPartido(int numJornada, Date dia,String nombClubLocal,String nombClubVisi,
-            Date hora, String TVEmite){}
+    public void definirPartido(int numJornada, Date dia,String nombClubLocal,
+            String nombClubVisi, Date hora, String TVEmite){}
     public void incluirClub(String nombre, String entrenador, String pabellon){}
 
     private boolean existeClub(String nombre){}
