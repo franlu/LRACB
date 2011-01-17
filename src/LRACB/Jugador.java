@@ -24,7 +24,9 @@ class Jugador {
 
     private Map<double,ClasifiacionJugador> clasificacionJugador = new HashMap<>(double,ClasifiacionJugador);
 
-    Jugador(String dniPas, String nombre, Calendar fechaNac, double altura, double peso, String posicion, String nacionalidad , int numero, Club cl){}
+    Jugador(String dniPas, String nombre, Calendar fechaNac, double altura, 
+            double peso, String posicion, String nacionalidad , int numero,
+            Club cl){}
     int obtenerNumero(){}
     
     //String obtenerNombre(){}
