@@ -39,7 +39,8 @@ class Jornada {
 
     }
 
-    int obtenerNumero(){
+    //int obtenerNumero(){
+    int getNumero(){
 
         return this.numJornada;
     }
