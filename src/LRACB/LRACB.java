@@ -118,16 +118,38 @@ public class LRACB {
         return (this.Jugadores).containsKey(dniPas);
     }
 
+    private Jugador buscarJugador(String dniPas){
+
+        return (this.Jugadores).get(dniPas);
+    }
+
     public ArrayList verPartidoDeJornada(int numJornada){}
     public ArrayList verJugadoresDeClub(String nombClub){}
     public ArrayList clasificacionGeneral(int numJornada){}
     public ArrayList rankingAnotadores(int numJornada){}
-    public ArrayList evolucionJugador(String dniPas){}
+
+
+    public ArrayList evolucionJugador(String dniPas){
+
+        Jugador ju = buscarJugador(dniPas);
+
+        //El metodo evolucionJugador no aparecen en la clase Jugador del DCD
+        ArrayList resultado = ju.evolucionJugador();
+
+        return resultado;
+
+    }
     
     public void anotarResultadoJugador(int numJornada, Date dia,String nombClubLocal,
             String dniPas,double minutosJugados, int intentos,int puntosConseguidos){}
     public void definirPartido(int numJornada, Date dia,String nombClubLocal,
-            String nombClubVisi, Date hora, String TVEmite){}
+            String nombClubVisi, Date hora, String TVEmite){
+    
+   
+        
+   }
+
+
     public void incluirClub(String nombre, String entrenador, String pabellon) throws LracbEx {
 
         boolean existeC = this.existeClub(nombre);
