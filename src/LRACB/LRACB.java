@@ -128,7 +128,18 @@ public class LRACB {
             String dniPas,double minutosJugados, int intentos,int puntosConseguidos){}
     public void definirPartido(int numJornada, Date dia,String nombClubLocal,
             String nombClubVisi, Date hora, String TVEmite){}
-    public void incluirClub(String nombre, String entrenador, String pabellon){}
+    public void incluirClub(String nombre, String entrenador, String pabellon) throws LracbEx {
+
+        boolean existeC = this.existeClub(nombre);
+
+        if (existeC) throw new LracbEx("Ya existe un club con ese nombre");
+
+        Club cl = new Club(nombre,entrenador,pabellon);
+
+        (this.Clubes).put(nombre, cl);
+    
+
+    }
 
     private boolean existeClub(String nombre){
 
