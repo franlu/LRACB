@@ -43,15 +43,29 @@ class Club {
 
     ArrayList jugadoresDeClub(){
 
-        ArrayList jug = new ArrayList();
-        Iterator it = (this.jugadores).entrySet().iterator();
+        ArrayList resultado = new ArrayList();
 
+        resultado.add(this.nombre);
+
+        if ((this.jugadores).size() == 0) {
+
+            resultado.add("El club no tiene definidos jugadores");
+
+        }
+        else {
+
+        Iterator it = (this.jugadores).entrySet().iterator();
+        ArrayList datosJugador = new ArrayList();
+        Jugador ju;
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry)it.next();
-            jug.add(e);
+            //Comprobar este casting
+            ju = (Jugador) e.getValue();
+            datosJugador = ju.obtenerDatosJugador();
+            resultado.add(datosJugador);
         }
-
-        return jug;
+        }
+        return resultado;
 
     }
     
