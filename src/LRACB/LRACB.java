@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class LRACB {
 
-    private Map< int,Jornada> Jornadas = new HashMap< int,Jornada>();
+    private Map<Integer,Jornada> Jornadas = new HashMap<Integer,Jornada>();
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
 
@@ -124,7 +124,18 @@ public class LRACB {
     }
 
     public ArrayList verPartidoDeJornada(int numJornada){}
-    public ArrayList verJugadoresDeClub(String nombClub){}
+
+    public ArrayList verJugadoresDeClub(String nombClub){
+    
+        ArrayList resultado = new ArrayList();
+        Club club = buscarClub(nombClub);
+        
+            resultado = club.jugadoresDeClub();
+        
+        return resultado;    
+    
+    }
+
     public ArrayList clasificacionGeneral(int numJornada){}
     public ArrayList rankingAnotadores(int numJornada){}
 
