@@ -83,7 +83,24 @@ class Jugador {
 
     }
     String obtenerPosicion(){}
-    ArrayList obtenerDatosJugador(){}
+
+    ArrayList obtenerDatosJugador(){
+    
+        ArrayList resultado = new ArrayList();
+        
+            resultado.add(this.nombre);
+            //variante: devolver edad 
+            resultado.add(this.fechaNac);
+            resultado.add(this.altura);
+            resultado.add(this.peso);
+            resultado.add(this.posicion);
+            resultado.add(this.nacionalidad);
+            resultado.add(this.numero);
+            
+       return resultado;    
+    
+    }
+
     String obtenerNombClub(){}
     private void ordenarPorJornada(){}
     ArrayList obtenerClasificacion(){}
