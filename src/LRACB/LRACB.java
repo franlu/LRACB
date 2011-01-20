@@ -137,7 +137,17 @@ public class LRACB {
     }
 
     public ArrayList clasificacionGeneral(int numJornada){}
-    public ArrayList rankingAnotadores(int numJornada){}
+    
+    public ArrayList rankingAnotadores(int numJornada){
+
+        ArrayList resultado = new ArrayList();
+        Jornada jor = buscarJornada(numJornada);
+
+            resultado = jor.rankingAnotadores();
+
+        return resultado;
+
+    }
 
 
     public ArrayList evolucionJugador(String dniPas){
