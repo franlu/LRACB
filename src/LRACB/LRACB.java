@@ -136,7 +136,16 @@ public class LRACB {
     
     }
 
-    public ArrayList clasificacionGeneral(int numJornada){}
+    public ArrayList clasificacionGeneral(int numJornada){
+
+    ArrayList resultado = new ArrayList();
+        Jornada jor = buscarJornada(numJornada);
+
+            //resultado = jor
+
+        return resultado;
+
+    }
     
     public ArrayList rankingAnotadores(int numJornada){
 
