@@ -27,8 +27,30 @@ public class LRACB {
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
 
-    public void definirJornada(Calendar listaDeFechas){
 
+    private Jornada obtenerUltimaJornada(){
+
+        Jornada jor = null;
+
+
+        return jor;
+
+    }
+
+    public void definirJornada(Calendar listaDeFechas) throws LracbEx{
+
+        //implementar obtenerUltimaJornada();
+        Jornada jorAnterior = obtenerUltimaJornada();
+        Boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+
+        if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
+
+        Integer numJornada = (Integer) jorAnterior.getNumero();
+        if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
+
+        //Implementar constructor de Jornada
+        Jornada j = new Jornada(numJornada,listaDeFechas);
+        (this.Jornadas).put(numJornada, j);
 
     }
 
