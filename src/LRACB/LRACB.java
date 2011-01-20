@@ -37,7 +37,7 @@ public class LRACB {
 
     }
 
-    public void definirJornada(Calendar listaDeFechas) throws LracbEx{
+    public void definirJornada(Calendar[] listaDeFechas) throws LracbEx{
 
         //implementar obtenerUltimaJornada();
         Jornada jorAnterior = obtenerUltimaJornada();
