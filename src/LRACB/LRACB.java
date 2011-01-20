@@ -141,7 +141,7 @@ public class LRACB {
     ArrayList resultado = new ArrayList();
         Jornada jor = buscarJornada(numJornada);
 
-            //resultado = jor
+            resultado = jor.clasificacionGeneral();
 
         return resultado;
 
