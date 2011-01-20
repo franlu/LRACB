@@ -80,8 +80,40 @@ class Jornada {
     private ClasificacionClub buscarCClub(String nombClub){}
 
     ArrayList verPartidoDeJornada(){}
-    ArrayList clasificacionGeneral(){}
-    void ordenarPorPartidosGanados(){}
+    
+    ArrayList clasificacionGeneral(){
+
+        ArrayList resultado = new ArrayList();
+        resultado.add(this.numJornada);
+            if ((this.cClub).size() == 0) {
+
+                resultado.add("No hay clasificacion para esa Jornada");
+
+            }
+            else{
+
+                ordenarPorPartidosGanados();
+                ArrayList datosClasificacion = new ArrayList();
+                Iterator it = (this.cClub).entrySet().iterator();
+                ClasificacionClub clc;
+
+                while (it.hasNext()) {// Ojo con los casting
+                    Map.Entry e = (Map.Entry)it.next();
+                    clc= (ClasificacionClub) e.getValue();
+                    datosClasificacion = clc.obtenerDatosClasificacion();
+                    resultado.add(datosClasificacion);
+                }
+
+            }
+
+        return resultado;
+    }
+
+    //private por DC ClasificacionGeneral
+    private void ordenarPorPartidosGanados(){
+
+    }
+
     ArrayList rankingAnotadores(){
     
         ArrayList resultado = new ArrayList();
