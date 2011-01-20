@@ -18,7 +18,7 @@ import java.util.Map;
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
 class Jornada {
 
@@ -28,14 +28,15 @@ class Jornada {
     //key double rendimiento
     private Map<Double,ClasificacionJugador> cJugador = new HashMap<Double,ClasificacionJugador>();
 
-    Jornada(int numJornada, Calendar listaDeFechas){
+    //DC definirJornada
+    Jornada(int numJornada, Calendar[] listaDeFechas){
+
     
-        this.numJornada = numJornada;
-    
+            
     
     }
 
-    boolean esAnterior(Calendar listaDeFechas){
+    boolean esAnterior(Calendar[] listaDeFechas){
 
         return true;
 
