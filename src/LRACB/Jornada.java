@@ -13,6 +13,7 @@ package LRACB;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -24,7 +25,8 @@ class Jornada {
     private int numJornada;
     private Fecha fecha;
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
-    private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
+    //key double rendimiento
+    private Map<Double,ClasificacionJugador> cJugador = new HashMap<Double,ClasificacionJugador>();
 
     Jornada(int numJornada, Calendar listaDeFechas){
     
@@ -80,8 +82,42 @@ class Jornada {
     ArrayList verPartidoDeJornada(){}
     ArrayList clasificacionGeneral(){}
     void ordenarPorPartidosGanados(){}
-    ArrayList rankingAnotadores(){}
-    void ordenaPorRendimiento(){}
+    ArrayList rankingAnotadores(){
+    
+        ArrayList resultado = new ArrayList();
+        
+            resultado.add(this.numJornada);
+            if ((this.cJugador).size() == 0) {
+                
+                resultado.add("No existe la clasificacion para esa Jornada");          
+            
+            }
+            else{
+            
+                ordenarPorRendimiento();
+                ArrayList datosClasificacion = new ArrayList();
+                Iterator it = (this.cJugador).entrySet().iterator();
+                ClasificacionJugador clj;
+
+                while (it.hasNext()) {// Ojo con los casting
+                    Map.Entry e = (Map.Entry)it.next();
+                    clj = (ClasificacionJugador) e.getValue();
+                    datosClasificacion = clj.obtenerDatosClasificacion();
+                    resultado.add(datosClasificacion);
+                }
+            
+            }
+        
+        
+        return resultado;   
+    
+    }
+    //DC rankingAnotadores ----- ordenar Map por key
+    private void ordenarPorRendimiento(){
+
+
+
+    }
     void anotarResultadoJugador(Calendar dia,String nombClubLocal, String dniPas,
                                 double minutosJugados, int intentos, int puntosConseguidos){}
     void incluirClasificacion(Jugador jug, double minutosTotales, int intentosTotales, int puntosTotales){}
