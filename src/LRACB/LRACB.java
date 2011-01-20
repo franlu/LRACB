@@ -123,7 +123,16 @@ public class LRACB {
         return (this.Jugadores).get(dniPas);
     }
 
-    public ArrayList verPartidoDeJornada(int numJornada){}
+    public ArrayList verPartidoDeJornada(int numJornada){
+
+        ArrayList resultado = new ArrayList();
+        Jornada jor = buscarJornada(numJornada);
+
+            //resultado = jor.
+
+        return resultado;
+
+    }
 
     public ArrayList verJugadoresDeClub(String nombClub){
     
@@ -138,7 +147,7 @@ public class LRACB {
 
     public ArrayList clasificacionGeneral(int numJornada){
 
-    ArrayList resultado = new ArrayList();
+        ArrayList resultado = new ArrayList();
         Jornada jor = buscarJornada(numJornada);
 
             resultado = jor.clasificacionGeneral();
