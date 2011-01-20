@@ -31,7 +31,25 @@ class ClasificacionJugador {
 
     }
 
-    ArrayList obtenerDatosClasificacion(){}
+    ArrayList obtenerDatosClasificacion(){
+
+        ArrayList datosClasificacion = new ArrayList();
+        String nombrej, nomClub, posicion;
+
+            nombrej = (this.jugador).obtenerNombre();
+            datosClasificacion.add(nombrej);
+            nomClub = (this.jugador).obtenerNombClub();
+            datosClasificacion.add(nomClub);
+            posicion = (this.jugador).obtenerPosicion();
+            datosClasificacion.add(posicion);
+            datosClasificacion.add(this.puntosTotales);
+            datosClasificacion.add(this.intentosTotales);
+            datosClasificacion.add(this.minutosTotales);
+            datosClasificacion.add(this.rendimiento);
+
+        return datosClasificacion;
+
+    }
 
     ArrayList obtenerDatosJornada(){
 
