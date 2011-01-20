@@ -1,8 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+* Jugador
+*
+* Informacion de la version
+*
+* Fecha
+*
+* Copyright
+*/
 package LRACB;
 
 import java.util.ArrayList;
@@ -82,7 +86,17 @@ class Jugador {
         return this.nombre;
 
     }
-    String obtenerPosicion(){}
+    String obtenerPosicion(){
+
+        return (this.posicion);
+
+    }
+
+    String obtenerNombre(){
+
+        return this.nombre;
+
+    }
 
     ArrayList obtenerDatosJugador(){
     
@@ -101,7 +115,12 @@ class Jugador {
     
     }
 
-    String obtenerNombClub(){}
+    String obtenerNombClub(){
+    
+        return (this.club).getNombre();
+    
+    }
+
     private void ordenarPorJornada(){}
     ArrayList obtenerClasificacion(){}
     ArrayList obtenerResultados(){}
