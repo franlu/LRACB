@@ -19,6 +19,16 @@ class ClasificacionClub {
 
     ClasificacionClub(Club club, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){
 
+        //usar modificadores operaciones set
+        //asignarClub(club);
+        //modificarGanados(ganados); setGanados(ganados);
+
+
+        this.club = club;
+        this.partidosGanados = ganados;
+        this.partidosPerdidos = perdidos;
+        this.puntosAFavor = puntosAFavor;
+        this.puntosEnContra = puntosEnContra;
 
     }
 
