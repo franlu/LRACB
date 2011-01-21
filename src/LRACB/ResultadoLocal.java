@@ -18,13 +18,18 @@ class ResultadoLocal {
     private int puntos;
 
     private Club club;
+
     //crear
     ResultadoLocal(Club cl){
 
         this.club = cl;
 
     }
-    void modificarResultado(int puntosLocal){}
+    void modificarResultado(int puntosLocal){
+
+        this.puntos = puntosLocal;
+
+    }
     ArrayList obtenerResultadoNomClub(){}
     String obtenerNombClubLocal(){}
     String obtenerPabellon(){}
