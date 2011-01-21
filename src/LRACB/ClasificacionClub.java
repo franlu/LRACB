@@ -22,12 +22,16 @@ class ClasificacionClub {
 
     }
 
-    int[] obtenerResultado(){
+    int[] obtenerResultados(){
 
-        int[] resultado;
+        int[] resulJorAnterior = new int[4];
 
+            resulJorAnterior[0] = this.partidosGanados;
+            resulJorAnterior[1] = this.partidosPerdidos;
+            resulJorAnterior[2] = this.puntosAFavor;
+            resulJorAnterior[3] = this.puntosEnContra;
 
-        return resultado;
+        return resulJorAnterior;
     
     }
     
