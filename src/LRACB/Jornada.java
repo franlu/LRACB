@@ -12,6 +12,7 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,8 +28,8 @@ class Jornada {
     private Fecha fecha;
     //key nombre del club
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
-    //key double rendimiento
-    private Map<Double,ClasificacionJugador> cJugador = new HashMap<Double,ClasificacionJugador>();
+    //key nombreJugador no double rendimiento
+    private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
 
     //DC definirJornada
     Jornada(int numJornada, Calendar[] listaDeFechas){
@@ -54,7 +55,7 @@ class Jornada {
     int[] obtenerResultado(String nombClub){
 
         ClasificacionClub cc = buscarCClub(nombClub);
-        return cc.obtenerResultado();
+        return cc.obtenerResultados();
     }
 
     void anotarResultado(GregorianCalendar dia, String nombClubLocal,int puntosLocal, int puntosVisi){
@@ -166,9 +167,13 @@ class Jornada {
         return resultado;   
     
     }
-    //DC rankingAnotadores ----- ordenar Map por key
+    //DC rankingAnotadores ----- ordenar Map por key no se puede porque la key es String
     private void ordenarPorRendimiento(){
 
+        //Dejara un documento en swad
+        List cjs = (this.cJugador).values();
+        Collections cjs =
+        Collections.sort(cjs);
 
 
     }
