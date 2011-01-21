@@ -21,7 +21,8 @@ import java.util.Map;
  */
 class Fecha {
 
-    private Calendar dia;
+    //TreeSet ordena por gregorian calendar
+    private GregorianCalendar[] dia = new GregorianCalendar[3];
     //hora,partido
     private Map<Calendar,Partido> Partidos = new HashMap<Calendar,Partido>();
 
