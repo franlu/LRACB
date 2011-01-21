@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -33,9 +34,11 @@ class Jugador {
     private Club club;
 
     //int numjornada, para agilizar busqueda de jornadas
-    private Map<int,ClasificacionJugador> clasificacionJugador = new HashMap<int,ClasificacionJugador>();
+    //TreeMap ordena en funcion de la key
+    private Map<Integer,ClasificacionJugador> clasificacionJugador = new TreeMap<Integer,ClasificacionJugador>();
 
-    Jugador(String dniPas, String nombre, Calendar fechaNac, double altura, 
+
+    Jugador(String dniPas, String nombre, Calendar fechaNac, double altura,
             double peso, String posicion, String nacionalidad , int numero,
             Club cl){}
     
@@ -56,7 +59,7 @@ class Jugador {
         }
         else {
             // ordenar el map por la clave..
-             //(this.clasificacionJugador).
+             //(this.clasificacionJugador). //ordenarPorJornada();
              ArrayList datosJornada = new ArrayList();
              ClasificacionJugador clj;
              Iterator it = (this.clasificacionJugador).entrySet().iterator();
@@ -121,7 +124,10 @@ class Jugador {
     
     }
 
-    private void ordenarPorJornada(){}
+    //Desaparece este metodo gracias a la clase TreeMap
+    //private void ordenarPorJornada(){
+    //}
+    
     ArrayList obtenerClasificacion(){}
     ArrayList obtenerResultados(){}
     ClasificacionJugador obtenerUltima(){}
