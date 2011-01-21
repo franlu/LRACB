@@ -31,7 +31,12 @@ class Fecha {
         return true;
 
     }
-    String obtenerNombClubVisi(String nombClubLocal){}
+    String obtenerNombClubVisi(String nombClubLocal){
+
+        Partido par = buscarPartido(nombClubLocal);
+        return par.obtenerNombClubVisi();
+
+    }
 
     void anotarResultado(String nombClubLocal, int puntosLocal, int puntosVisi){
 
