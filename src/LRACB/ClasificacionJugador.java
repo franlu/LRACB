@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author Fco Javier Lucena Lucena
  */
-class ClasificacionJugador {
+class ClasificacionJugador implements Comparable {
 
     private int puntosTotales;
     private int intentosTotales;
@@ -39,6 +39,24 @@ class ClasificacionJugador {
         this.puntosTotales = puntosTotales;
     
 
+    }
+
+    double getRendimiento(){
+    
+        return this.rendimiento; 
+    
+    }
+
+    public int compareTo(Object o){
+    
+        ClasificacionJugador cj = (ClasificacionJugador) o;
+        
+        if (this.rendimiento == cj.getRendimiento()){
+            return 0;
+        }
+        if (this.rendimiento > cj.getRendimiento()){
+            return -1;
+        }   
     }
 
     ArrayList obtenerDatosClasificacion(){
