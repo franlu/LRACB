@@ -33,7 +33,12 @@ class Fecha {
     }
     String obtenerNombClubVisi(String nombClubLocal){}
 
-    void anotarResultado(int puntosLocal, int puntosVisi){}
+    void anotarResultado(String nombClubLocal, int puntosLocal, int puntosVisi){
+
+
+
+
+    }
 
     // en diagrama de colaboracion no aparece el parametro dia
     ArrayList resultadoJugadores(Calendar dia, String nombClubLocal){
