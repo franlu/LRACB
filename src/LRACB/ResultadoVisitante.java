@@ -11,7 +11,12 @@ class ResultadoVisitante {
     private Club club;
     //crear
     ResultadoVisitante(Club cv){}
-    void modificarResultado(int puntosVisi){}
+    
+    void modificarResultado(int puntosVisi){
+
+        this.puntos = puntosVisi;
+
+    }
     ArrayList obtenerResultadoNomClub(){}
     String obtenerNombClubVisi(){}
     //No esta en DCDiseño obtenerPabellon
