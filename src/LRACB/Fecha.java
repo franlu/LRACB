@@ -35,9 +35,9 @@ class Fecha {
 
     void anotarResultado(String nombClubLocal, int puntosLocal, int puntosVisi){
 
-
-
-
+        Partido par = buscarPartido(nombClubLocal);
+        par.anotarResultado(puntosLocal, puntosVisi);
+        
     }
 
     // en diagrama de colaboracion no aparece el parametro dia
