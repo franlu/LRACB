@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  *
- * @author fran
+ * @author Fco Javier Lucena Lucena
  */
 class Partido {
 
@@ -26,9 +26,21 @@ class Partido {
 
     private ResultadoLocal resultadoLocal;
     private ResultadoVisitante resultadoVisitante;
-    private Map<int,ResultadoJugador> resultadoJugador = new HashMap<int,ResultadoJugador>();
+    private Map<Integer,ResultadoJugador> resultadoJugador = new HashMap<Integer,ResultadoJugador>();
 
-    void anotarResultado(int puntosLocal, int puntosVisi){}
+
+    Partido(Club cl, Club cv, Calendar hora, String TVEmite){
+
+
+
+    }
+
+    void anotarResultado(int puntosLocal, int puntosVisi){
+
+        (this.resultadoLocal).modificarResultado(puntosLocal);
+        (this.resultadoVisitante).modificarResultado(puntosVisi);
+      
+    }
     
     String obtenerNombClubVisi(){
 
@@ -55,9 +67,16 @@ class Partido {
 
     }
     ArrayList datosDelPartido(){}
+
     void anotarResultadoJugador(String dniPas, double minutosJugados, int intentos,
-            int puntosConseguidos){}
+            int puntosConseguidos){
+    
+    
+    
+    
+    }
+    
     boolean participaClub(Club cl, Club cv){}
-    public void crear(Club cl, Club cv, Calendar hora, String TVEmite){}
+    
     
 }
