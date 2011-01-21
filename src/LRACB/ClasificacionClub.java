@@ -17,8 +17,19 @@ class ClasificacionClub {
     private Club club;
 
 
-    void crear(Club club, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){}
-    ArrayList obtenerResultados(){}
+    ClasificacionClub(Club club, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){
+
+
+    }
+
+    int[] obtenerResultado(){
+
+        int[] resultado;
+
+
+        return resultado;
+    
+    }
     
     ArrayList obtenerDatosClasificacion(){
 
