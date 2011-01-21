@@ -12,6 +12,7 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -24,6 +25,7 @@ class Jornada {
 
     private int numJornada;
     private Fecha fecha;
+    //key nombre del club
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
     //key double rendimiento
     private Map<Double,ClasificacionJugador> cJugador = new HashMap<Double,ClasificacionJugador>();
@@ -48,19 +50,34 @@ class Jornada {
         return this.numJornada;
     }
 
-    ArrayList obtenerResultados(String nombClub){
+    //ojo con este int vector de 4 posiciones
+    int[] obtenerResultado(String nombClub){
+
+        ClasificacionClub cc = buscarCClub(nombClub);
+        return cc.obtenerResultado();
+    }
+
+    void anotarResultado(GregorianCalendar dia, String nombClubLocal,int puntosLocal, int puntosVisi){
+
+        Fecha fech = buscarFecha(dia);
+
+        fech.anotarResultado(nombClubLocal,puntosLocal, puntosVisi);
 
     }
 
-    void anotarResultado(Calendar dia, String nombClubLocal,int puntosLocal, int puntosVisi){
-    }
+    String obtenerNombClubVisitante(GregorianCalendar dia, String nombClubLocal){
 
-    String obtenerNombClubVisitante(Calendar dia, String nombClubLocal){
+        Fecha fech = buscarFecha(dia);
 
+        return fech.obtenerNombClubVisi(nombClubLocal);
 
     }
 
     void definirClasificacionClub(Club cl, int ganados, int perdidos, int puntosAFavor, int puntosEnContra){
+
+        ClasificacionClub cc = new ClasificacionClub(cl,ganados,perdidos,puntosAFavor,puntosEnContra);
+
+        (this.cClub).put(cl.getNombre(),cc);
 
     }
 
@@ -77,7 +94,11 @@ class Jornada {
 
     }
 
-    private Fecha buscarFecha(Calendar dia){}
+    private Fecha buscarFecha(Calendar dia){
+
+
+
+    }
     private ClasificacionClub buscarCClub(String nombClub){}
 
     ArrayList verPartidoDeJornada(){}
