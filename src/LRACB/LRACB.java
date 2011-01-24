@@ -54,17 +54,29 @@ public class LRACB {
 
     public void definirJornada(Calendar[] listaDeFechas) throws LracbEx{
 
-        //implementar obtenerUltimaJornada();
         Jornada jorAnterior = obtenerUltimaJornada();
         Boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+        Integer numJornada;
+        Jornada j;
 
-        if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
+        //Si no hay jornadas definidas
+        if (jorAnterior != null){
 
-        Integer numJornada = (Integer) jorAnterior.getNumero();
-        if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
+            if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
 
-        //Implementar constructor de Jornada
-        Jornada j = new Jornada(numJornada,listaDeFechas);
+            numJornada = (Integer) jorAnterior.getNumero();
+            if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
+
+            //Implementar constructor de Jornada
+            j = new Jornada(numJornada,listaDeFechas);
+
+        }
+        else{
+            //crear la primera Jornada
+            numJornada = 1;
+            j = new Jornada(numJornada,listaDeFechas);
+        }
+
         (this.Jornadas).put(numJornada, j);
 
     }
