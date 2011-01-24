@@ -1,5 +1,5 @@
 /*
-* LRACB
+* Fecha
 *
 * Informacion de la version
 *
@@ -12,6 +12,7 @@ package LRACB;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,14 +23,26 @@ import java.util.Map;
 class Fecha {
 
     //TreeSet ordena por gregorian calendar
-    private GregorianCalendar[] dia = new GregorianCalendar[3];
+    private GregorianCalendar dia = new GregorianCalendar();
     //hora,partido
     private Map<Calendar,Partido> Partidos = new HashMap<Calendar,Partido>();
 
-    void crear(Calendar dia){}
-    boolean esAnterior(Calendar dia){
+    
+    Fecha(GregorianCalendar dia){
 
-        return true;
+        setDia(dia);
+
+    }
+
+    boolean esAnterior(GregorianCalendar ant){
+
+         if ((ant.get(Calendar.YEAR) <= dia.get(Calendar.YEAR)) &&
+              (ant.get(Calendar.MONTH) <= dia.get(Calendar.DAY_OF_MONTH)) &&
+              (ant.get(Calendar.DAY_OF_MONTH) < dia.get(Calendar.DAY_OF_MONTH)))
+
+            return true;
+         else
+            return false;
 
     }
     String obtenerNombClubVisi(String nombClubLocal){
@@ -66,5 +79,16 @@ class Fecha {
     // Errata en DCDiseño
     boolean participaPartido(Club cl, Club cv){}
     void definirPartido(Club cl, Club cl, Date hora, String TVEmite){}
-    
+
+    void setDia(GregorianCalendar dia){
+
+       this.dia = dia;
+
+    }
+
+    GregorianCalendar getDia(){
+
+       return this.dia;
+
+    }
 }
