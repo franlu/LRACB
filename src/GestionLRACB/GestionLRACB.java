@@ -11,7 +11,7 @@ public class GestionLRACB {
 
     public static void main(String[] args){
 
-    
+        LRACB ligaACB = LRACB.getLRACB();
 
 
 
