@@ -13,9 +13,12 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -24,7 +27,7 @@ import java.util.Map;
 public class LRACB {
 
     private static LRACB miLRACB = null;
-    private Map<Integer,Jornada> Jornadas = new HashMap<Integer,Jornada>();
+    private Map<Integer,Jornada> Jornadas = new TreeMap<Integer,Jornada>();
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
 
@@ -40,11 +43,13 @@ public class LRACB {
 
     private Jornada obtenerUltimaJornada(){
 
-        Jornada jor = null;
-
-
-        return jor;
-
+        Iterator it = (this.Jornadas).entrySet().iterator();
+        Jornada j = null;
+        while (it.hasNext()) {
+           Map.Entry e = (Map.Entry)it.next();
+           j = (Jornada) e.getValue();
+        }
+        return j;
     }
 
     public void definirJornada(Calendar[] listaDeFechas) throws LracbEx{
@@ -79,7 +84,7 @@ public class LRACB {
 
     public void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
 
-       String nombClubVisitante;
+        /* String nombClubVisitante;
        Jornada jor1 = buscarJornada(numJornada);
            jor1.anotarResultado(dia,nombClubLocal,puntosLocal,puntosVisi);
            nombClubVisitante = jor1.obtenerNombClubVisitante(dia,nombClubLocal);
@@ -90,7 +95,7 @@ public class LRACB {
            auxNombClub[0] = nombClubLocal;
            auxNombClub[1] = nombClubVisitante;
   
-           for(int i=0; i<1;i++){
+         for(int i=0; i<1;i++){
                 int[] resultadoAnterior;
                 if (numJornada != 1){
                     resultadoAnterior = jorAnterior.obternerResultado(auxNombClub[i]);
@@ -114,9 +119,9 @@ public class LRACB {
 
 
            } 
-           
+           */
 
-           jor1.definirClasificacionClub(club,ganados,perdidos,puntosAFavor,puntosEnContra);
+           //jor1.definirClasificacionClub(club,ganados,perdidos,puntosAFavor,puntosEnContra);
 
     }
 
