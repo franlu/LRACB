@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -73,7 +74,34 @@ class Fecha {
 
 
     }
-    ArrayList partidosDeUnDia(){}
+    ArrayList partidosDeUnDia(){
+
+        ArrayList resultado1 = new ArrayList();
+        ArrayList resultado2 = new ArrayList();
+
+        resultado1.add(getDia());
+        if((this.Partidos).size() == 0){
+
+            resultado1.add("No esta definidos los partidos de este dia");
+
+        }
+        else{
+
+            Partido par;
+
+            Iterator it = (this.Partidos).entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry)it.next();
+                par = (Partido) e.getValue();
+                resultado2 = par.datosDelPartido();
+                resultado1.add(resultado2);
+            }
+
+        }
+
+        return resultado1;
+
+    }
     void anotarResultadoJugador(String nombClubLocal, String dniPas, double minutosJugados,
             int intentos, int puntosConseguidos){}
     // Errata en DCDiseño
