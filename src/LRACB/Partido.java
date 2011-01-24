@@ -91,7 +91,22 @@ class Partido {
         return resultado1;
 
     }
-    ArrayList datosDelPartido(){}
+    ArrayList datosDelPartido(){
+
+        ArrayList resultado1 = new ArrayList();
+        String nombClubLocal = (this.resultadoLocal).obtenerNombClubLocal();
+        String nombClubVisi = (this.resultadoVisitante).obtenerNombClubVisi();
+        String pabellon = (this.resultadoLocal).obtenerPabellon();
+
+        resultado1.add(nombClubLocal);
+        resultado1.add(nombClubVisi);
+        resultado1.add(getHora());
+        resultado1.add(pabellon);
+        resultado1.add(getTVemite());
+
+        return resultado1;
+
+    }
 
     void anotarResultadoJugador(String dniPas, double minutosJugados, int intentos,
             int puntosConseguidos){
@@ -101,7 +116,35 @@ class Partido {
     
     }
     
-    boolean participaClub(Club cl, Club cv){}
-    
+    boolean participaClub(Club cl, Club cv){
+
+
+        return true;
+
+    }
+
+    Calendar getHora(){
+
+        return this.hora;
+
+    }
+
+    String getTVemite(){
+
+        return this.TVemite;
+
+    }
+
+    void setHora(Calendar hora){
+
+        this.hora = hora;
+
+    }
+
+    void setTVemite(String tv){
+
+        this.TVemite = tv;
+
+    }
     
 }
