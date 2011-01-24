@@ -12,7 +12,6 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,23 +24,30 @@ import java.util.Map;
 class Jornada {
 
     private int numJornada;
-    private Fecha fecha;
+    private Fecha[] fecha = new Fecha[3];
     //key nombre del club
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
     //key nombreJugador no double rendimiento
     private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
 
-    //DC definirJornada
-    Jornada(int numJornada, Calendar[] listaDeFechas){
+    
+    Jornada(int numJornada, Fecha[] listaDeFechas){
 
-    
-            
-    
+        setNumero(numJornada);
+        setFecha(listaDeFechas);
+
     }
 
-    boolean esAnterior(Calendar[] listaDeFechas){
+    boolean esAnterior(Fecha[] listaDeFechas){
 
-        return true;
+        Fecha f;
+        boolean anterior = false;
+        //mejora_proteccion: condicion bucle i<2
+        for(int i=0; i<listaDeFechas.length && !anterior; i++){
+            f = listaDeFechas[i];
+            anterior = f.esAnterior(f.getDia());
+        }
+        return anterior;
 
     }
 
@@ -49,6 +55,28 @@ class Jornada {
     int getNumero(){
 
         return this.numJornada;
+    }
+
+    Fecha[] getFecha(){
+
+        return this.fecha;
+     }
+
+    void setNumero(int num){
+
+        this.numJornada = num;
+    }
+
+    void setFecha(Fecha[] listaDeFechas){
+
+        Fecha f;
+        GregorianCalendar dia;
+        //mejora_proteccion: condicion bucle i<2
+        for(int i=0; i<listaDeFechas.length; i++){
+            f = listaDeFechas[i];
+            this.fecha[i]= f;
+        }
+
     }
 
     //ojo con este int vector de 4 posiciones
@@ -100,9 +128,18 @@ class Jornada {
 
 
     }
-    private ClasificacionClub buscarCClub(String nombClub){}
+    private ClasificacionClub buscarCClub(String nombClub){
 
-    ArrayList verPartidoDeJornada(){}
+       
+
+    }
+
+    ArrayList verPartidoDeJornada(){
+
+        ArrayList resultado1 = new ArrayList();
+        return resultado1;
+
+    }
     
     ArrayList clasificacionGeneral(){
 
@@ -171,9 +208,9 @@ class Jornada {
     private void ordenarPorRendimiento(){
 
         //Dejara un documento en swad
-        List cjs = (this.cJugador).values();
-        Collections cjs =
-        Collections.sort(cjs);
+        //List cjs = (this.cJugador).values();
+        //Collections cjs =
+        //Collections.sort(cjs);
 
 
     }
