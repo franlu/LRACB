@@ -2,6 +2,7 @@
 package GestionLRACB;
 
 import LRACB.*;
+import java.util.GregorianCalendar;
 /**
  *
  * @author Fco Javier Lucena Lucena
@@ -16,7 +17,8 @@ public class GestionLRACB {
 
         do{
             try{
-
+              
+                //ligaACB.definirJornada(listaDeFechas);
                 //ligaACB.incluirClub("CB Granada", "Trifon", "Palacio Deportes");
                 //ligaACB.verJugadoresDeClub("CB Granada");
             }catch (Exception ex){
