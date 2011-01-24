@@ -24,15 +24,31 @@ class ResultadoJugador {
     
     }
     // En DCDiseño se le pasas un nc (creo que nombre club)
-    ArrayList obtenerResultadoJugador(){
+    ArrayList obtenerResultadoJugador(String nombClub){
 
-        ArrayList resultado = new ArrayList();
+        ArrayList resultado5 = new ArrayList();
 
-        resultado.add(this.minutosJugados);
-        resultado.add(this.intentos);
-        resultado.add(this.puntos);
 
-        return resultado;
+
+        if (nombClub.equals((this.jugador).obtenerNombre())){
+
+            resultado5.add(this.jugador.obtenerNumero());
+            resultado5.add(this.jugador.getNombre());
+            resultado5.add(this.jugador.obtenerPosicion());
+            resultado5.add(this.minutosJugados);
+            resultado5.add(this.intentos);
+            resultado5.add(this.puntos);
+
+            double rendimiento;
+
+            rendimiento = (this.puntos - this.intentos) / this.minutosJugados;
+            resultado5.add(rendimiento);
+
+
+        }
+        
+
+        return resultado5;
     }
 
     double getMinutosJugados(){
