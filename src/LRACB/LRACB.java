@@ -13,7 +13,6 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -52,7 +51,7 @@ public class LRACB {
         return j;
     }
 
-    public void definirJornada(Calendar[] listaDeFechas) throws LracbEx{
+    public void definirJornada(Fecha[] listaDeFechas) throws LracbEx{
 
         Jornada jorAnterior = obtenerUltimaJornada();
         Boolean anterior = jorAnterior.esAnterior(listaDeFechas);
@@ -67,7 +66,6 @@ public class LRACB {
             numJornada = (Integer) jorAnterior.getNumero();
             if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
 
-            //Implementar constructor de Jornada
             j = new Jornada(numJornada,listaDeFechas);
 
         }
