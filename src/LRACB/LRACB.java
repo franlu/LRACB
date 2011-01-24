@@ -23,9 +23,19 @@ import java.util.Map;
  */
 public class LRACB {
 
+    private static LRACB miLRACB = null;
     private Map<Integer,Jornada> Jornadas = new HashMap<Integer,Jornada>();
     private Map<String,Club> Clubes = new HashMap<String,Club>();
     private Map<String,Jugador> Jugadores = new HashMap<String,Jugador>();
+
+
+    private LRACB(){}
+
+    public  static LRACB  getLRACB(){
+    if(miLRACB==null)
+         miLRACB = new LRACB();
+    return miLRACB;
+  }
 
 
     private Jornada obtenerUltimaJornada(){
