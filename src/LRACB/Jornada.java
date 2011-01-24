@@ -136,7 +136,15 @@ class Jornada {
 
     ArrayList verPartidoDeJornada(){
 
+        ArrayList resultado = new ArrayList();
         ArrayList resultado1 = new ArrayList();
+        Fecha fech;
+        resultado.add(getNumero());
+        for(int i=0; i<fecha.length; i++){
+            fech = fecha[i];
+            resultado1 = fech.partidosDeUnDia();
+            resultado.add(resultado1);
+        }
         return resultado1;
 
     }
@@ -157,7 +165,7 @@ class Jornada {
                 Iterator it = (this.cClub).entrySet().iterator();
                 ClasificacionClub clc;
 
-                while (it.hasNext()) {// Ojo con los casting
+                while (it.hasNext()) {
                     Map.Entry e = (Map.Entry)it.next();
                     clc= (ClasificacionClub) e.getValue();
                     datosClasificacion = clc.obtenerDatosClasificacion();
