@@ -32,7 +32,10 @@ class Partido {
 
     Partido(Club cl, Club cv, Calendar hora, String TVEmite){
 
-
+        this.resultadoLocal = new ResultadoLocal(cl);
+        this.resultadoVisitante = new ResultadoVisitante(cv);
+        setHora(hora);
+        setTVemite(TVEmite);
 
     }
 
@@ -118,8 +121,12 @@ class Partido {
     
     boolean participaClub(Club cl, Club cv){
 
+        boolean participa = false;
 
-        return true;
+            participa = this.resultadoLocal.participaClub(cl, cv);
+            participa = this.resultadoVisitante.participaClub(cl, cv);
+
+        return participa;
 
     }
 
