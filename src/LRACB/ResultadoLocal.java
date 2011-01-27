@@ -9,6 +9,8 @@
 */
 package LRACB;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author fran
@@ -30,10 +32,37 @@ class ResultadoLocal {
         this.puntos = puntosLocal;
 
     }
-    ArrayList obtenerResultadoNomClub(){}
-    String obtenerNombClubLocal(){}
-    String obtenerPabellon(){}
-    Jugador obtenerJugador(String dniPas){}
-    boolean perteneceJugador(String dniPas){}
-    boolean participaClub(Club cl, Club cv){}
+    ArrayList obtenerResultadoNomClub(){
+
+        ArrayList resultado = new ArrayList();
+
+
+        return resultado;
+
+    }
+    String obtenerNombClubLocal(){
+
+        return this.club.getNombre();
+
+    }
+    String obtenerPabellon(){
+
+        return this.club.getPabellon();
+
+    }
+    Jugador obtenerJugador(String dniPas){
+
+        Jugador jug = null;
+        return jug;
+
+    }
+    boolean perteneceJugador(String dniPas){
+
+        return true;
+    }
+    
+    boolean participaClub(Club cl, Club cv){
+
+        return true;
+    }
 }
