@@ -25,7 +25,7 @@ class Jornada {
 
     private int numJornada;
     private Fecha[] fecha = new Fecha[3];
-    //key nombre del club
+    //key nombre del club compareTo en clase clasficacion con partidos Ganados
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
     //key nombreJugador no double rendimiento
     private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
@@ -40,14 +40,15 @@ class Jornada {
 
     boolean esAnterior(GregorianCalendar[] listaDeFechas){
 
+        //recorrer las fechas que hay en fecha y compararlas con cada gregorian calendar
         GregorianCalendar f;
         boolean anterior = false;
         //mejora_proteccion: condicion bucle i<2
         for(int i=0; i<listaDeFechas.length && !anterior; i++){
             f = listaDeFechas[i];
             //necesito objetos de tipo Fecha para llamar a esAnterior de la clase Fecha
-            //anterior = f.esAnterior(f));
-            //anterior = f.esAnterior(f));
+            anterior = (this.fecha[i]).esAnterior(f);
+                    //anterior = f.esAnterior(f));
         }
         return anterior;
 
