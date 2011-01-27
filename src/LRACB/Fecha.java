@@ -39,13 +39,15 @@ class Fecha {
 
     boolean esAnterior(GregorianCalendar ant){
 
-         if ((ant.get(Calendar.YEAR) <= dia.get(Calendar.YEAR)) &&
-              (ant.get(Calendar.MONTH) <= dia.get(Calendar.DAY_OF_MONTH)) &&
-              (ant.get(Calendar.DAY_OF_MONTH) < dia.get(Calendar.DAY_OF_MONTH)))
+        int opcion;
 
+        opcion = dia.compareTo(ant);
+
+        if (opcion < 0)
             return true;
-         else
+        else
             return false;
+        
 
     }
     String obtenerNombClubVisi(String nombClubLocal){
