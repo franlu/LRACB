@@ -52,13 +52,11 @@ public class LRACB {
         return j;
     }
 
-    //El tipo de dato no puede ser Fecha // gregoriancalendar no es compatible con otros metodos-clases
+    
     public void definirJornada(GregorianCalendar[] listaDeFechas) throws LracbEx{
-
+        
         Jornada jorAnterior = obtenerUltimaJornada();
-        //Fecha[] listaFechas = new Fecha[3];
-        //listaFechas[i].setDia(i);
-        Boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+        boolean anterior = jorAnterior.esAnterior(listaDeFechas);
         Integer numJornada;
         Jornada j;
 
@@ -70,16 +68,16 @@ public class LRACB {
             numJornada = (Integer) jorAnterior.getNumero();
             if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
 
-            //j = new Jornada(numJornada,listaDeFechas);
+            j = new Jornada(numJornada,listaDeFechas);
 
         }
         else{
             //crear la primera Jornada
             numJornada = 1;
-            //j = new Jornada(numJornada,listaDeFechas);
+            j = new Jornada(numJornada,listaDeFechas);
         }
 
-        //(this.Jornadas).put(numJornada, j);
+        (this.Jornadas).put(numJornada, j);
 
     }
 
@@ -163,8 +161,8 @@ public class LRACB {
                 jor1.definirClasificacionClub(club,ganados,perdidos,puntosAFavor,puntosEnContra);
            }//for
     }
-
-    public ArrayList resultadoJugadores(int numJornada, Calendar dia, String nombClubLocal){
+    //Gregorian Calendar dia, lo dice la profe
+    public ArrayList resultadoJugadores(int numJornada, GregorianCalendar dia, String nombClubLocal){
         
         ArrayList resultado1;
         Jornada jor;
