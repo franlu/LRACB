@@ -1,11 +1,11 @@
 /*
 * ClasificacionJugador
 *
-* Informacion de la version
+* verison 0.1
 *
-* Fecha
+* 27 Enero 2011
 *
-* Copyright
+* Fco Javier Lucena Lucena
 */
 
 package LRACB;
@@ -13,11 +13,6 @@ package LRACB;
 import java.util.ArrayList;
 
 
-
-/**
- *
- * @author Fco Javier Lucena Lucena
- */
 class ClasificacionJugador implements Comparable {
 
     private int puntosTotales;
@@ -32,31 +27,14 @@ class ClasificacionJugador implements Comparable {
     ClasificacionJugador(Jugador jug, Jornada jor, double minutosTotales,
             int intentosTotales, int puntosTotales){
 
-        this.jugador = jug;
-        this.jornada = jor;
-        this.minutosTotales = minutosTotales;
-        this.intentosTotales = intentosTotales;
-        this.puntosTotales = puntosTotales;
+        setJugador(jug);
+        setJornada(jor);
+        setMinutosTotales(minutosTotales);
+        setIntentosTotales(intentosTotales);
+        setPuntosTotales(puntosTotales);
+        setRendimiento(intentosTotales / puntosTotales);
     
 
-    }
-
-    double getRendimiento(){
-    
-        return this.rendimiento; 
-    
-    }
-
-    public int compareTo(Object o){
-    
-        ClasificacionJugador cj = (ClasificacionJugador) o;
-        
-        if (this.rendimiento == cj.getRendimiento()){
-            return 0;
-        }
-        if (this.rendimiento > cj.getRendimiento()){
-            return -1;
-        }   
     }
 
     ArrayList obtenerDatosClasificacion(){
@@ -64,16 +42,16 @@ class ClasificacionJugador implements Comparable {
         ArrayList datosClasificacion = new ArrayList();
         String nombrej, nomClub, posicion;
 
-            nombrej = (this.jugador).obtenerNombre();
+            nombrej = getJugador().obtenerNombre();
             datosClasificacion.add(nombrej);
-            nomClub = (this.jugador).obtenerNombClub();
+            nomClub = getJugador().obtenerNombClub();
             datosClasificacion.add(nomClub);
-            posicion = (this.jugador).obtenerPosicion();
+            posicion = getJugador().obtenerPosicion();
             datosClasificacion.add(posicion);
-            datosClasificacion.add(this.puntosTotales);
-            datosClasificacion.add(this.intentosTotales);
-            datosClasificacion.add(this.minutosTotales);
-            datosClasificacion.add(this.rendimiento);
+            datosClasificacion.add(getPuntosTotales());
+            datosClasificacion.add(getIntentosTotales());
+            datosClasificacion.add(getMinutosTotales());
+            datosClasificacion.add(getRendimiento());
 
         return datosClasificacion;
 
@@ -82,17 +60,102 @@ class ClasificacionJugador implements Comparable {
     ArrayList obtenerDatosJornada(){
 
         ArrayList datosJornada = new ArrayList();
-        int numJornada = (this.jornada).getNumero();
+        int numJornada = getJornada().getNumero();
         datosJornada.add(numJornada);
-        datosJornada.add(this.puntosTotales);
-        datosJornada.add(this.intentosTotales);
-        datosJornada.add(this.minutosTotales);
-        datosJornada.add(this.rendimiento);
+        datosJornada.add(getPuntosTotales());
+        datosJornada.add(getIntentosTotales());
+        datosJornada.add(getMinutosTotales());
+        datosJornada.add(getRendimiento());
 
         return datosJornada;
 
     }
-    
 
-    
+
+    public int compareTo(Object o){
+
+        ClasificacionJugador cj = (ClasificacionJugador) o;
+
+        if (this.rendimiento == cj.getRendimiento())
+            return 0;
+
+        if (this.rendimiento > cj.getRendimiento())
+            return -1;
+
+        return 1;
+
+    }
+
+    int getPuntosTotales(){
+
+        return this.puntosTotales;
+
+    }
+
+    int getIntentosTotales(){
+
+        return this.intentosTotales;
+
+    }
+
+    double getMinutosTotales(){
+
+        return this.minutosTotales;
+
+    }
+
+    double getRendimiento(){
+
+        return this.rendimiento;
+
+    }
+
+    Jugador getJugador(){
+
+        return this.jugador;
+
+    }
+
+    Jornada getJornada(){
+
+        return this.jornada;
+
+    }
+
+    void setPuntosTotales(int puntos){
+
+        this.puntosTotales = puntos;
+
+    }
+
+    void setIntentosTotales(int intentos){
+
+        this.intentosTotales = intentos;
+
+    }
+
+    void setMinutosTotales(double min){
+
+        this.minutosTotales = min;
+
+    }
+
+    void setRendimiento(double rend){
+
+        this.rendimiento = rend;
+
+    }
+
+    void setJugador(Jugador jug){
+
+        this.jugador = jug;
+
+    }
+
+    void setJornada(Jornada jor){
+
+        this.jornada = jor;
+
+    }
+
 }
