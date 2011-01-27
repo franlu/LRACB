@@ -76,10 +76,10 @@ class ClasificacionJugador implements Comparable {
 
         ClasificacionJugador cj = (ClasificacionJugador) o;
 
-        if (this.rendimiento == cj.getRendimiento())
+        if (getRendimiento() == cj.getRendimiento())
             return 0;
 
-        if (this.rendimiento > cj.getRendimiento())
+        if (getRendimiento() > cj.getRendimiento())
             return -1;
 
         return 1;
