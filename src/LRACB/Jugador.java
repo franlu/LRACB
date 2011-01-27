@@ -11,7 +11,6 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -128,8 +127,51 @@ class Jugador {
     //private void ordenarPorJornada(){
     //}
     
-    ArrayList obtenerClasificacion(){}
-    ArrayList obtenerResultados(){}
-    ClasificacionJugador obtenerUltima(){}
-    void incluir(ClasificacionJugador cc){}
+    ArrayList obtenerClasificacion(){
+
+        ArrayList resultadosUltimaClasificacion = new ArrayList();
+        ClasificacionJugador ultimaClasificacion;
+
+            if ((this.clasificacionJugador).size() != 0) {
+
+                ultimaClasificacion = obtenerUltima();
+                resultadosUltimaClasificacion = ultimaClasificacion.obtenerDatosClasificacion();
+            }
+            else {
+
+                //resultadosUltimaClasificacion = devolver [0,0,0,0]
+
+            }
+
+        return resultadosUltimaClasificacion;
+
+    }
+    
+    ArrayList obtenerResultados(){
+
+        ArrayList resultado = new ArrayList();
+
+        return resultado;
+
+    }
+    
+    ClasificacionJugador obtenerUltima(){
+
+        ClasificacionJugador clj = null;
+        Iterator it = (this.clasificacionJugador).entrySet().iterator();
+
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry)it.next();
+                clj = (ClasificacionJugador) e.getValue();
+
+            }
+        return clj;
+
+    }
+    
+    void incluir(ClasificacionJugador cj){
+
+
+
+    }
 }
