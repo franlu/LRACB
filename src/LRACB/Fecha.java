@@ -26,6 +26,8 @@ class Fecha {
     //TreeSet ordena por gregorian calendar
     private GregorianCalendar dia = new GregorianCalendar();
     //hora,partido
+    //planterse el TreeSet para ordenar
+    //con un ArrayList puede ir fino, casi que no usar map
     private Map<Calendar,Partido> Partidos = new HashMap<Calendar,Partido>();
 
     
@@ -70,8 +72,9 @@ class Fecha {
 
     }
     private Partido buscarPartido(String nombClubLocal){
-
-
+    //pendiente de hacer
+        Partido par = null;
+        return par;
 
     }
     ArrayList partidosDeUnDia(){
@@ -104,9 +107,35 @@ class Fecha {
     }
     void anotarResultadoJugador(String nombClubLocal, String dniPas, double minutosJugados,
             int intentos, int puntosConseguidos){}
+
     // Errata en DCDiseño
-    boolean participaPartido(Club cl, Club cv){}
-    void definirPartido(Club cl, Club cl, Date hora, String TVEmite){}
+    boolean participaPartido(Club cl, Club cv){
+
+       Boolean participa = false;
+       Partido par;
+
+            Iterator it = (this.Partidos).entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry)it.next();
+                par = (Partido) e.getValue();
+                if (!participa)
+                    participa = par.participaClub(cl, cv);
+            }
+
+       return participa;
+
+    }
+    
+    
+    void definirPartido(Club cl, Club cv, Date hora, String TVEmite){
+
+        //pendiente del tipo de dato para hora
+        //Partido par = new Partido(cl,cv,hora,TVEmite);
+
+          //  (this.Partidos).put(hora, par);
+
+
+    }
 
     void setDia(GregorianCalendar dia){
 
