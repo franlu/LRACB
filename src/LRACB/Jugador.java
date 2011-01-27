@@ -11,6 +11,7 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -33,8 +34,7 @@ class Jugador {
     
     private Club club;
 
-    //int numjornada, para agilizar busqueda de jornadas
-    //TreeMap ordena en funcion de la key
+    //TreeMap para agilizar la busqueda de una jornadas
     private Map<Integer,ClasificacionJugador> clasificacionJugador = new TreeMap<Integer,ClasificacionJugador>();
 
 
@@ -69,13 +69,13 @@ class Jugador {
 
         }
         else {
-            // ordenar el map por la clave..
-             //(this.clasificacionJugador). //ordenarPorJornada();
+            
+             //La Clase TreeMap ordena por numero de Jornada
              ArrayList datosJornada = new ArrayList();
              ClasificacionJugador clj;
              Iterator it = (this.clasificacionJugador).entrySet().iterator();
 
-                while (it.hasNext()) {// Ojo con los casting
+                while (it.hasNext()) {
                     Map.Entry e = (Map.Entry)it.next();
                     clj = (ClasificacionJugador) e.getValue();
                     datosJornada = clj.obtenerDatosJornada();
@@ -107,18 +107,22 @@ class Jugador {
 
     }
 
+    
     ArrayList obtenerDatosJugador(){
     
         ArrayList resultado = new ArrayList();
-        
-            resultado.add(this.nombre);
-            //variante: devolver edad 
-            resultado.add(this.fechaNac);
-            resultado.add(this.altura);
-            resultado.add(this.peso);
-            resultado.add(this.posicion);
-            resultado.add(this.nacionalidad);
-            resultado.add(this.numero);
+        GregorianCalendar fecha = new GregorianCalendar();
+        Date hoy = new Date();//fecha actual
+        fecha.setTime(hoy);
+
+            resultado.add(getNombre());
+            //Return int edad
+            resultado.add(fecha.get(Calendar.YEAR) - getFechaNac().YEAR);
+            resultado.add(getAltura());
+            resultado.add(getPeso());
+            resultado.add(getPosicion());
+            resultado.add(getNacionalidad());
+            resultado.add(getNumero());
             
        return resultado;    
     
@@ -126,7 +130,7 @@ class Jugador {
 
     String obtenerNombClub(){
     
-        return (this.club).getNombre();
+        return (getClub()).getNombre();
     
     }
 
