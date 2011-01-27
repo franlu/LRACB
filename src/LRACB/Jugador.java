@@ -11,6 +11,7 @@ package LRACB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -23,7 +24,7 @@ class Jugador {
 
     private String nombre;
     private String dniPass;
-    private Calendar fechaNac;
+    private GregorianCalendar fechaNac;
     private double altura;
     private String posicion;
     private double peso;
@@ -37,9 +38,20 @@ class Jugador {
     private Map<Integer,ClasificacionJugador> clasificacionJugador = new TreeMap<Integer,ClasificacionJugador>();
 
 
-    Jugador(String dniPas, String nombre, Calendar fechaNac, double altura,
+    Jugador(String dniPas, String nombre, GregorianCalendar fechaNac, double altura,
             double peso, String posicion, String nacionalidad , int numero,
-            Club cl){}
+            Club cl){
+
+            setNombre(nombre);
+            setDniPass(dniPas);
+            setFechaNac(fechaNac);
+            setAltura(altura);
+            setPeso(peso);
+            setPosicion(posicion);
+            setNacionalidad(nacionalidad);
+            setNumero(numero);
+            setClub(cl);
+    }
     
     //No aparece en DCD pero si en DCol
     ArrayList evolucionJugador(){
@@ -82,12 +94,7 @@ class Jugador {
 
     }
     
-    //String obtenerNombre(){}
-    String getNombre(){
-
-        return this.nombre;
-
-    }
+   
     String obtenerPosicion(){
 
         return (this.posicion);
@@ -172,6 +179,114 @@ class Jugador {
     void incluir(ClasificacionJugador cj){
 
 
+
+    }
+
+    void setNombre(String nombre){
+
+        this.nombre = nombre;
+
+    }
+
+    void setDniPass(String dni){
+
+        this.dniPass = dni;
+
+    }
+
+    void setFechaNac(GregorianCalendar fecha){
+
+        this.fechaNac = fecha;
+
+    }
+
+    void setAltura(double altura){
+
+        this.altura = altura;
+
+    }
+
+    void setPosicion(String posicion){
+
+        this.posicion = posicion;
+
+    }
+
+    void setPeso(double peso){
+
+        this.peso = peso;
+
+    }
+
+    void setNacionalidad(String nac){
+
+        this.nacionalidad = nac;
+
+    }
+
+    void setNumero(int num){
+
+        this.numero = num;
+
+    }
+
+    void setClub(Club c){
+
+        this.club = c;
+
+    }
+
+    String getNombre(){
+
+        return this.nombre;
+
+    }
+
+    String getDniPass(){
+
+        return this.dniPass;
+
+    }
+
+    GregorianCalendar getFechaNac(){
+
+        return this.fechaNac;
+
+    }
+
+    double getAltura(){
+
+        return this.altura;
+
+    }
+
+    String getPosicion(){
+
+        return this.posicion;
+
+    }
+
+    double getPeso(){
+
+        return this.peso;
+
+    }
+
+    String getNacionalidad(){
+
+        return this.nacionalidad;
+
+    }
+
+    int getNumero(){
+
+        return this.numero;
+
+    }
+
+    Club getClub(){
+
+        return this.club;
 
     }
 }
