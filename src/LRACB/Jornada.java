@@ -38,14 +38,16 @@ class Jornada {
 
     }
 
-    boolean esAnterior(Fecha[] listaDeFechas){
+    boolean esAnterior(GregorianCalendar[] listaDeFechas){
 
-        Fecha f;
+        GregorianCalendar f;
         boolean anterior = false;
         //mejora_proteccion: condicion bucle i<2
         for(int i=0; i<listaDeFechas.length && !anterior; i++){
             f = listaDeFechas[i];
-            anterior = f.esAnterior(f.getDia());
+            //necesito objetos de tipo Fecha para llamar a esAnterior de la clase Fecha
+            //anterior = f.esAnterior(f));
+            //anterior = f.esAnterior(f));
         }
         return anterior;
 
@@ -70,7 +72,6 @@ class Jornada {
     void setFecha(Fecha[] listaDeFechas){
 
         Fecha f;
-        GregorianCalendar dia;
         //mejora_proteccion: condicion bucle i<2
         for(int i=0; i<listaDeFechas.length; i++){
             f = listaDeFechas[i];
@@ -116,7 +117,8 @@ class Jornada {
         ArrayList resultado1 = new ArrayList();
 
             resultado.add(this.numJornada);
-            resultado1 = (this.fecha).resultadoJugadores(dia, nombClubLocal);
+            //pendiente del tipo de dato para dia
+            //resultado1 = (this.fecha).resultadoJugadores(dia, nombClubLocal);
             resultado.add(resultado1);
 
             return resultado;
@@ -125,12 +127,15 @@ class Jornada {
 
     private Fecha buscarFecha(Calendar dia){
 
+        Fecha f = null;
 
+        return f;
 
     }
     private ClasificacionClub buscarCClub(String nombClub){
 
-       
+       ClasificacionClub cc = null;
+       return cc;
 
     }
 
@@ -225,5 +230,22 @@ class Jornada {
     void anotarResultadoJugador(Calendar dia,String nombClubLocal, String dniPas,
                                 double minutosJugados, int intentos, int puntosConseguidos){}
     void incluirClasificacion(Jugador jug, double minutosTotales, int intentosTotales, int puntosTotales){}
-    void definirPartido(Calendar dia, Club cl, Club cv, Calendar hora,String TVEmite){}
+    
+    void definirPartido(Calendar dia, Club cl, Club cv, Calendar hora,String TVEmite) throws LracbEx{
+
+        boolean participa = false;
+        Fecha f1,f2;
+
+        for(int i=0; i<fecha.length && !participa; i++){
+            f1 = fecha[i];
+            participa = f1.participaPartido(cl,cv);
+            if (participa) throw new LracbEx("alguno de los club ya participa en otro partido de esa jornada");
+        }
+
+        f2 = buscarFecha(dia);
+        //tipo de dato hora
+        //f2.definirPartido(cl, cv, hora, TVEmite);
+
+    }
+
 }
