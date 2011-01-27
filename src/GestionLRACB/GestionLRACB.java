@@ -41,29 +41,55 @@ public class GestionLRACB {
         LRACB ligaACB = LRACB.getLRACB();
         int opcion = 0;
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String nombClub,nombJug;
+        String nombClub,nombJug,nombEntre;
+        int anio, mes, dia;
+        GregorianCalendar aux = new GregorianCalendar();
 
         do{
             try{
 
                 opcion = menuInicial();
-
+                
                 switch (opcion){
                 
                     case 1:
-                        //Fecha f = null;
-                        GregorianCalendar[] listaDeFechas = new GregorianCalendar[3];
+                        System.out.print("¿Durante cuantos dias se celebra la jornada? ");
+                        int dias = Integer.parseInt(in.readLine());
+
+                        while (dias<1 || dias>3){
+                            System.out.print("Minimo Uno, Maximo tres :)");
+                            dias = Integer.parseInt(in.readLine());
+                        }
+                       
+                        GregorianCalendar[] listaDeFechas = new GregorianCalendar[dias];
+
+                        for(int i=0;i<dias; i++){
+                            System.out.print("Fecha " + (i+1) + " :\n");
+                            System.out.print("Indica el Año \n");
+                            anio = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Mes \n");
+                            mes = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Dia \n");
+                            dia = Integer.parseInt(in.readLine());
+                            aux.set(anio,mes,dia);
+                            listaDeFechas[i] = aux;
+                        }
+
                         ligaACB.definirJornada(listaDeFechas);
+                        System.out.print("La Jornada ha sido definida correctamente.");
+                        System.out.println();
                         break;
 
                     case 2:
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();
-                        System.out.print("Introduce el nombre del Jugador:  ");
-                        nombJug = in.readLine();
+                        System.out.print("Introduce el nombre del Entrenador:  ");
+                        nombEntre = in.readLine();
                         System.out.print("Introduce el nombre del Pabellon :  ");
                         String nombPab = in.readLine();
-                        ligaACB.incluirClub(nombClub, nombJug, nombPab);
+                        ligaACB.incluirClub(nombClub, nombEntre, nombPab);
+                        System.out.print("El club se ha añadido a la liga.");
+                        System.out.println();
                         break;
 
                     case 3:
@@ -73,19 +99,27 @@ public class GestionLRACB {
                         String dniPas = in.readLine();
                         System.out.print("Introduce el nombre del Jugador:  ");
                         nombJug = in.readLine();
-                        System.out.print("Introduce la Fecha de Nacimiento:  ");
-                        String fecha = in.readLine();
+                        System.out.print("Introduce la Fecha de Nacimiento:  \n");
+                            System.out.print("Indica el Año \n");
+                            anio = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Mes \n");
+                            mes = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Dia \n");
+                            dia = Integer.parseInt(in.readLine());
+                            aux.set(anio,mes,dia);
                         System.out.print("Introduce la altura del Jugador:  ");
-                        String nombJ = in.readLine();
+                        double altura = Double.parseDouble(in.readLine());
                         System.out.print("Introduce el peso :  ");
-                        String peso = in.readLine();
+                        double peso = Double.parseDouble(in.readLine());
                         System.out.print("Introduce la posicion:  ");
                         String posicion = in.readLine();
                         System.out.print("Introduce la nacionalidad:  ");
                         String nacionalidad = in.readLine();
                         System.out.print("Introduce el numero :  ");
                         int num = Integer.parseInt(in.readLine());
-                        ligaACB.incluirJugador(nombClub, dniPas , nombJug, , , , posicion, nacionalidad, num);
+                        ligaACB.incluirJugador(nombClub, dniPas , nombJug, aux, altura , peso, posicion, nacionalidad, num);
+                        System.out.print("El " + nombClub + " ha fichado un nuevo Jugador.");
+                        System.out.println();
                         break;
 
                     case 4:
@@ -111,6 +145,7 @@ public class GestionLRACB {
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();
                         ArrayList jugadores = ligaACB.verJugadoresDeClub(nombClub);
+                        System.out.print(jugadores);
                         break;
 
                     case 9:
