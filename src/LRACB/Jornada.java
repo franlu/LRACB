@@ -43,12 +43,11 @@ class Jornada {
         //recorrer las fechas que hay en fecha y compararlas con cada gregorian calendar
         GregorianCalendar f;
         boolean anterior = false;
-        //mejora_proteccion: condicion bucle i<2
+
         for(int i=0; i<listaDeFechas.length && !anterior; i++){
             f = listaDeFechas[i];
-            //necesito objetos de tipo Fecha para llamar a esAnterior de la clase Fecha
             anterior = (this.fecha[i]).esAnterior(f);
-                    //anterior = f.esAnterior(f));
+             
         }
         return anterior;
 
@@ -66,16 +65,17 @@ class Jornada {
      }
 
     void setNumero(int num){
-
+        
         this.numJornada = num;
     }
 
     void setFechas(GregorianCalendar[] listaDeFechas){
-
+        
         GregorianCalendar dia;
         for(int i=0; i<listaDeFechas.length; i++){
             dia = listaDeFechas[i];
-            (this.fecha[i]).setDia(dia);
+            // peta con this.fecha[i].setDia(dia);
+            this.fecha[i] = new Fecha(dia);
         }
 
     }
