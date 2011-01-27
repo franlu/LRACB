@@ -31,10 +31,10 @@ class Jornada {
     private Map<String,ClasificacionJugador> cJugador = new HashMap<String,ClasificacionJugador>();
 
     
-    Jornada(int numJornada, Fecha[] listaDeFechas){
+    Jornada(int numJornada, GregorianCalendar[] listaDeFechas){
 
         setNumero(numJornada);
-        setFecha(listaDeFechas);
+        setFechas(listaDeFechas);
 
     }
 
@@ -60,7 +60,7 @@ class Jornada {
         return this.numJornada;
     }
 
-    Fecha[] getFecha(){
+    Fecha[] getFechas(){
 
         return this.fecha;
      }
@@ -70,13 +70,12 @@ class Jornada {
         this.numJornada = num;
     }
 
-    void setFecha(Fecha[] listaDeFechas){
+    void setFechas(GregorianCalendar[] listaDeFechas){
 
-        Fecha f;
-        //mejora_proteccion: condicion bucle i<2
+        GregorianCalendar dia;
         for(int i=0; i<listaDeFechas.length; i++){
-            f = listaDeFechas[i];
-            this.fecha[i]= f;
+            dia = listaDeFechas[i];
+            (this.fecha[i]).setDia(dia);
         }
 
     }
