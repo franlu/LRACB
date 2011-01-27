@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Fco Javier Lucena Lucena
  */
-class ClasificacionClub {
+class ClasificacionClub implements Comparable{
 
     private int partidosGanados;
     private int partidosPerdidos;
@@ -59,5 +59,24 @@ class ClasificacionClub {
         return datosClasificacion;
 
     }
-    
+
+    public int compareTo(Object obj){
+
+        ClasificacionClub cc = (ClasificacionClub) obj;
+
+        if (getPartidosGanados() == cc.getPartidosGanados())
+            return 0;
+
+        if (getPartidosGanados() > cc.getPartidosGanados())
+            return -1;
+
+        return 1;
+
+    }
+
+    int getPartidosGanados(){
+
+        return this.partidosGanados;
+
+    }
 }
