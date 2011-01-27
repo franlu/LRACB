@@ -56,13 +56,13 @@ public class LRACB {
     public void definirJornada(GregorianCalendar[] listaDeFechas) throws LracbEx{
         
         Jornada jorAnterior = obtenerUltimaJornada();
-        boolean anterior = jorAnterior.esAnterior(listaDeFechas);
         Integer numJornada;
         Jornada j;
 
         //Si no hay jornadas definidas
         if (jorAnterior != null){
 
+            boolean anterior = jorAnterior.esAnterior(listaDeFechas);
             if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
 
             numJornada = (Integer) jorAnterior.getNumero();
