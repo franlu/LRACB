@@ -12,8 +12,6 @@
 package LRACB;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,31 +56,31 @@ public class LRACB {
         Jornada jorAnterior = obtenerUltimaJornada();
         Integer numJornada;
         Jornada j;
-
+        
         //Si no hay jornadas definidas
         if (jorAnterior != null){
-
+            
             boolean anterior = jorAnterior.esAnterior(listaDeFechas);
             if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
-
+            
             numJornada = (Integer) jorAnterior.getNumero();
             if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
-
+              
             j = new Jornada(numJornada,listaDeFechas);
-
+             
         }
         else{
             //crear la primera Jornada
             numJornada = 1;
             j = new Jornada(numJornada,listaDeFechas);
         }
-
+       
         (this.Jornadas).put(numJornada, j);
 
     }
 
     public void incluirJugador(String nombClub,String dniPas, String nomJugador,
-                       Calendar fechaNac, double altura, double peso, String posicion,
+                       GregorianCalendar fechaNac, double altura, double peso, String posicion,
                        String nacionalidad, int numero) throws LracbEx {
 
         if ((this.Jugadores).containsKey(dniPas))
@@ -94,25 +92,25 @@ public class LRACB {
         (this.Jugadores).put(dniPas, ju);
     }
 
-    public void anotarResultado(int numJornada, Calendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
+    public void anotarResultado(int numJornada, GregorianCalendar dia, String nombClubLocal, int puntosLocal, int puntosVisi){
 
        String nombClubVisitante;
        Jornada jor1 = buscarJornada(numJornada);
        int[] resultadoJorAnterior = new int[4];
-           //pendiente para el tipo de dato para dia
-           //jor1.anotarResultado(dia,nombClubLocal,puntosLocal,puntosVisi);
-           //nombClubVisitante = jor1.obtenerNombClubVisitante(dia,nombClubLocal);
+           
+           jor1.anotarResultado(dia,nombClubLocal,puntosLocal,puntosVisi);
+           nombClubVisitante = jor1.obtenerNombClubVisitante(dia,nombClubLocal);
            if (numJornada != 1){
                Jornada jorAnterior = buscarJornada(numJornada-1);
            }
            String[] auxNombClub = new String[2];
            auxNombClub[0] = nombClubLocal;
-          // auxNombClub[1] = nombClubVisitante;
+           auxNombClub[1] = nombClubVisitante;
   
            for(int i=0; i<1;i++){
              
                 if (numJornada != 1){
-                    //resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
+                    resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
                 }
                 else{ // Primera Jornada
                     int[] resultadoAux = new int[4];
@@ -253,32 +251,26 @@ public class LRACB {
 
     }
     
-    public void anotarResultadoJugador(int numJornada, Date dia,String nombClubLocal,
+    public void anotarResultadoJugador(int numJornada, GregorianCalendar dia,String nombClubLocal,
             String dniPas,double minutosJugados, int intentos,int puntosConseguidos){
 
-       Jornada jor = buscarJornada(numJornada);
-       Jugador jug = buscarJugador(dniPas);
-       ArrayList resultadoUltimaClasificicacion = new ArrayList();
+            Jornada jor = buscarJornada(numJornada);
+            Jugador jug = buscarJugador(dniPas);
+            ArrayList resultadoUltimaClasificicacion = new ArrayList();
 
-            //pendiente para el tipo de dato para dia
-            //jor.anotarResultadoJugador(dia, nombClubLocal, dniPas, minutosJugados, intentos, puntosConseguidos);
-            resultadoUltimaClasificicacion = jug.obtenerClasificacion();
-            jor.incluirClasificacion(jug, minutosJugados, intentos, puntosConseguidos);
-
-
-
-
+                jor.anotarResultadoJugador(dia, nombClubLocal, dniPas, minutosJugados, intentos, puntosConseguidos);
+                resultadoUltimaClasificicacion = jug.obtenerClasificacion();
+                jor.incluirClasificacion(jug, minutosJugados, intentos, puntosConseguidos);
 
     }
     
-    public void definirPartido(int numJornada, Date dia, String nombClubLocal,
-            String nombClubVisi, Date hora, String TVEmite){
+    public void definirPartido(int numJornada, GregorianCalendar dia, String nombClubLocal,
+            String nombClubVisi, GregorianCalendar hora, String TVEmite) throws LracbEx{
 
-        Club cl = buscarClub(nombClubLocal);
-        Club cv = buscarClub(nombClubVisi);
-        Jornada jor = buscarJornada(numJornada);
-            //pendiente del tipo de dato para dia
-            //jor.definirPartido(dia, cl, cv, hora, TVEmite);
+            Club cl = buscarClub(nombClubLocal);
+            Club cv = buscarClub(nombClubVisi);
+            Jornada jor = buscarJornada(numJornada);
+            jor.definirPartido(dia, cl, cv, hora, TVEmite);
    
         
    }
