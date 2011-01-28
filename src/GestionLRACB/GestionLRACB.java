@@ -41,8 +41,10 @@ public class GestionLRACB {
         LRACB ligaACB = LRACB.getLRACB();
         int opcion = 0;
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String nombClub,nombJug,nombEntre;
-        int anio, mes, dia,numJornada;
+        String nombClub, nombJug, nombEntre, dniPas;
+        int anio, mes, dia,numJornada, puntosLocal, puntosVisi;
+        double minutosJug;
+        int intentos, puntos;
         GregorianCalendar aux = new GregorianCalendar();
 
         do{
@@ -96,7 +98,7 @@ public class GestionLRACB {
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();
                         System.out.print("Introduce el DNI/PAS del Jugador :  ");
-                        String dniPas = in.readLine();
+                        dniPas = in.readLine();
                         System.out.print("Introduce el nombre del Jugador:  ");
                         nombJug = in.readLine();
                         System.out.print("Introduce la Fecha de Nacimiento:  \n");
@@ -146,14 +148,52 @@ public class GestionLRACB {
                         System.out.print("Indica la TV que emite el partido:  ");
                         String tv = in.readLine();
                         ligaACB.definirPartido(numJornada, aux, nombClub, nombClubVisi, aux, tv);
+                        System.out.print("Definido un nuevo partido para la jornada " + numJornada + "\n");
                         break;
 
                     case 5:
-                        ligaACB.anotarResultado(opcion, null, null, opcion, opcion);
+
+                        System.out.print("Introduce el numero de la Jornada: ");
+                        numJornada = Integer.parseInt(in.readLine());
+                        System.out.print("Introduce la fecha de la Jornada  \n");
+                            System.out.print("Indica el Dia \n");
+                            dia = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Mes \n");
+                            mes = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Año \n");
+                            anio = Integer.parseInt(in.readLine());
+                            aux.set(anio,mes,dia);
+                        System.out.print("Introduce el nombre del Club Local:  ");
+                        nombClub = in.readLine();
+                        System.out.print("Introduce los puntos del equipo Local: ");
+                        puntosLocal = Integer.parseInt(in.readLine());
+                        System.out.print("Introduce los puntos del equipo visitante: ");
+                        puntosVisi = Integer.parseInt(in.readLine());
+                        ligaACB.anotarResultado(numJornada, aux, nombClub, puntosLocal, puntosVisi);
                         break;
 
                     case 6:
-                        ligaACB.anotarResultadoJugador(opcion, null, null, null, opcion, opcion, opcion);
+                        System.out.print("Introduce el numero de la Jornada: ");
+                        numJornada = Integer.parseInt(in.readLine());
+                        System.out.print("Introduce la fecha de la Jornada  \n");
+                            System.out.print("Indica el Dia \n");
+                            dia = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Mes \n");
+                            mes = Integer.parseInt(in.readLine());
+                            System.out.print("Indica el Año \n");
+                            anio = Integer.parseInt(in.readLine());
+                            aux.set(anio,mes,dia);
+                        System.out.print("Introduce el nombre del Club Local:  ");
+                        nombClub = in.readLine();
+                        System.out.print("Introduce el DNI/PAS del Jugador :  ");
+                        dniPas = in.readLine();
+                        System.out.print("Introduce los minutos jugados: ");
+                        minutosJug = Double.parseDouble(in.readLine());
+                        System.out.print("Introduce el numero de intentos: ");
+                        intentos = Integer.parseInt(in.readLine());
+                        System.out.print("Introduce el numero de puntosConseguidos: ");
+                        puntos = Integer.parseInt(in.readLine());
+                        ligaACB.anotarResultadoJugador(numJornada, aux, nombClub, dniPas, minutosJug, intentos, puntos);
                         break;
 
                     case 7:
