@@ -63,6 +63,9 @@ class ResultadoLocal {
     
     boolean participaClub(Club cl, Club cv){
 
-        return true;
+        if (this.club == cv)
+            return true;
+        else
+            return false;
     }
 }
