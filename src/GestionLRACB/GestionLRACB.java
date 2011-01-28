@@ -212,8 +212,8 @@ public class GestionLRACB {
 
                     case 9:
                         System.out.print("Introduce el numero de la Jornada: ");
-                        int numJ = Integer.parseInt(in.readLine());
-                        ArrayList clasificacion = ligaACB.clasificacionGeneral(numJ);
+                        numJornada = Integer.parseInt(in.readLine());
+                        ArrayList clasificacion = ligaACB.clasificacionGeneral(numJornada);
                         break;
 
                     case 10:
@@ -222,8 +222,8 @@ public class GestionLRACB {
 
                     case 11:
                         System.out.print("Introduce el numero de la Jornada: ");
-                        int numero = Integer.parseInt(in.readLine());
-                        ligaACB.rankingAnotadores(numero);
+                        numJornada = Integer.parseInt(in.readLine());
+                        ligaACB.rankingAnotadores(numJornada);
                         break;
 
                     case 12:
