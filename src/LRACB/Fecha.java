@@ -10,8 +10,6 @@
 package LRACB;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,7 +26,7 @@ class Fecha {
     //hora,partido
     //planterse el TreeSet para ordenar
     //con un ArrayList puede ir fino, casi que no usar map
-    private Map<Calendar,Partido> Partidos = new HashMap<Calendar,Partido>();
+    private Map<GregorianCalendar,Partido> Partidos = new HashMap<GregorianCalendar,Partido>();
 
     
     Fecha(GregorianCalendar dia){
@@ -40,7 +38,6 @@ class Fecha {
     boolean esAnterior(GregorianCalendar ant){
 
         int opcion;
-
         opcion = dia.compareTo(ant);
 
         if (opcion < 0)
@@ -65,7 +62,7 @@ class Fecha {
     }
 
     // en diagrama de colaboracion no aparece el parametro dia
-    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal){
+    ArrayList resultadoJugadores(GregorianCalendar dia, String nombClubLocal){
 
         Partido par = buscarPartido(nombClubLocal);
         ArrayList resultado1 = par.resultadoJugadores();
@@ -113,30 +110,27 @@ class Fecha {
     // Errata en DCDiseño
     boolean participaPartido(Club cl, Club cv){
 
-       Boolean participa = false;
+       Boolean participa = false;//Si no hay partidos return false
        Partido par;
 
             Iterator it = (this.Partidos).entrySet().iterator();
-            while (it.hasNext()) {
+            while (it.hasNext() && !participa) {
                 Map.Entry e = (Map.Entry)it.next();
                 par = (Partido) e.getValue();
-                if (!participa)
-                    participa = par.participaClub(cl, cv);
+                participa = par.participaClub(cl, cv);
             }
-
+            System.out.print("participa en fecha.participaPartido:  " + participa+ "___");
        return participa;
 
     }
     
     
-    void definirPartido(Club cl, Club cv, Date hora, String TVEmite){
-
-        //pendiente del tipo de dato para hora
-        //Partido par = new Partido(cl,cv,hora,TVEmite);
-
-          //  (this.Partidos).put(hora, par);
-
-
+    void definirPartido(Club cl, Club cv, GregorianCalendar hora, String TVEmite){
+        
+        Partido par = new Partido(cl,cv,hora,TVEmite);
+        
+            (this.Partidos).put(hora, par);
+            
     }
 
     void setDia(GregorianCalendar dia){
