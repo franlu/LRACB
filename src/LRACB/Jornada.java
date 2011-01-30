@@ -41,13 +41,13 @@ class Jornada {
     boolean esAnterior(GregorianCalendar[] listaDeFechas){
 
         //recorrer las fechas que hay en fecha y compararlas con cada gregorian calendar
-        GregorianCalendar f;
+        GregorianCalendar f,fj;
         boolean anterior = false;
 
         for(int i=0; i<listaDeFechas.length && !anterior; i++){
             f = listaDeFechas[i];
             anterior = (this.fecha[i]).esAnterior(f);
-             
+            
         }
         return anterior;
 
@@ -74,13 +74,12 @@ class Jornada {
         GregorianCalendar dia;
         for(int i=0; i<listaDeFechas.length; i++){
             dia = listaDeFechas[i];
-            // peta con this.fecha[i].setDia(dia);
             this.fecha[i] = new Fecha(dia);
         }
 
     }
 
-    //ojo con este int vector de 4 posiciones
+    
     int[] obtenerResultado(String nombClub){
 
         ClasificacionClub cc = buscarCClub(nombClub);
@@ -111,24 +110,29 @@ class Jornada {
 
     }
 
-    ArrayList resultadoJugadores(Calendar dia, String nombClubLocal ){
+    ArrayList resultadoJugadores(GregorianCalendar dia, String nombClubLocal ){
 
         ArrayList resultado = new ArrayList();
         ArrayList resultado1 = new ArrayList();
-
+        int i =0;
             resultado.add(this.numJornada);
-            //pendiente del tipo de dato para dia
-            //resultado1 = (this.fecha).resultadoJugadores(dia, nombClubLocal);
+            //recorrer cada fecha []
+            resultado1 = (this.fecha)[i].resultadoJugadores(dia, nombClubLocal);
             resultado.add(resultado1);
 
             return resultado;
 
     }
 
-    private Fecha buscarFecha(Calendar dia){
+    private Fecha buscarFecha(GregorianCalendar dia){
 
         Fecha f = null;
 
+        for(int i=0; i<(this.fecha).length; i++){
+             if ((this.fecha)[i].getDia().compareTo(dia) == 0)
+                 f = (this.fecha)[i];
+        }
+        
         return f;
 
     }
@@ -150,7 +154,7 @@ class Jornada {
             resultado1 = fech.partidosDeUnDia();
             resultado.add(resultado1);
         }
-        return resultado1;
+        return resultado;
 
     }
     
@@ -231,21 +235,22 @@ class Jornada {
                                 double minutosJugados, int intentos, int puntosConseguidos){}
     void incluirClasificacion(Jugador jug, double minutosTotales, int intentosTotales, int puntosTotales){}
     
-    void definirPartido(Calendar dia, Club cl, Club cv, Calendar hora,String TVEmite) throws LracbEx{
+    void definirPartido(GregorianCalendar dia, Club cl, Club cv, GregorianCalendar hora,String TVEmite) throws LracbEx{
 
         boolean participa = false;
         Fecha f1,f2;
-
-        for(int i=0; i<fecha.length && !participa; i++){
-            f1 = fecha[i];
+        
+        for(int i=0; i<(this.fecha).length && !participa; i++){
+            f1 = new Fecha(this.fecha[i].getDia());
+            System.out.print("antes llamar participaPartido\n");
             participa = f1.participaPartido(cl,cv);
+            System.out.print("despues llamar participaPartido\n");
             if (participa) throw new LracbEx("alguno de los club ya participa en otro partido de esa jornada");
         }
-
+        System.out.print("1_jornada.definirPartido\n");
         f2 = buscarFecha(dia);
-        //tipo de dato hora
-        //f2.definirPartido(cl, cv, hora, TVEmite);
-
+        f2.definirPartido(cl, cv, hora, TVEmite);
+        System.out.print("2__jornada.definirPartido\n");
     }
 
 }
