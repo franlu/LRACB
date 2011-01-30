@@ -11,7 +11,7 @@
 package LRACB;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -22,7 +22,7 @@ import java.util.Map;
  */
 class Partido {
 
-    private Calendar hora;
+    private GregorianCalendar hora;
     private String TVemite;
 
     private ResultadoLocal resultadoLocal;
@@ -30,12 +30,13 @@ class Partido {
     private Map<Integer,ResultadoJugador> resultadoJugador = new HashMap<Integer,ResultadoJugador>();
 
 
-    Partido(Club cl, Club cv, Calendar hora, String TVEmite){
+    Partido(Club cl, Club cv, GregorianCalendar hora, String TVEmite){
 
         this.resultadoLocal = new ResultadoLocal(cl);
         this.resultadoVisitante = new ResultadoVisitante(cv);
         setHora(hora);
         setTVemite(TVEmite);
+        
 
     }
 
@@ -124,13 +125,15 @@ class Partido {
         boolean participa = false;
 
             participa = this.resultadoLocal.participaClub(cl, cv);
+            
             participa = this.resultadoVisitante.participaClub(cl, cv);
 
+        
         return participa;
 
     }
 
-    Calendar getHora(){
+    GregorianCalendar getHora(){
 
         return this.hora;
 
@@ -142,7 +145,7 @@ class Partido {
 
     }
 
-    void setHora(Calendar hora){
+    void setHora(GregorianCalendar hora){
 
         this.hora = hora;
 
