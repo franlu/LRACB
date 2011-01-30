@@ -64,8 +64,15 @@ class ClasificacionClub implements Comparable{
 
         ClasificacionClub cc = (ClasificacionClub) obj;
 
-        if (getPartidosGanados() == cc.getPartidosGanados())
+        //meter anidao la comparacion con puntos a Favor
+        if (getPartidosGanados() == cc.getPartidosGanados()){
+            if (getPuntosAFavor() == cc.getPuntosAFavor())
+                return 0;
+            if (getPuntosAFavor() > cc.getPuntosAFavor())
+                return -1;
+            // donde return 1;
             return 0;
+        }
 
         if (getPartidosGanados() > cc.getPartidosGanados())
             return -1;
@@ -77,6 +84,12 @@ class ClasificacionClub implements Comparable{
     int getPartidosGanados(){
 
         return this.partidosGanados;
+
+    }
+
+    int getPuntosAFavor(){
+
+        return this.puntosAFavor;
 
     }
 }
