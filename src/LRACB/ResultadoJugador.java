@@ -23,7 +23,7 @@ class ResultadoJugador {
     
     
     }
-    // En DCDiseño se le pasas un nc (creo que nombre club)
+    
     ArrayList obtenerResultadoJugador(String nombClub){
 
         ArrayList resultado5 = new ArrayList();
