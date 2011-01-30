@@ -47,6 +47,7 @@ public class LRACB {
            Map.Entry e = (Map.Entry)it.next();
            j = (Jornada) e.getValue();
         }
+        
         return j;
     }
 
@@ -56,16 +57,23 @@ public class LRACB {
         Jornada jorAnterior = obtenerUltimaJornada();
         Integer numJornada;
         Jornada j;
+
         
         //Si no hay jornadas definidas
         if (jorAnterior != null){
             
+            // esAnterior petaaaaaaaaaaaaa
+            // jorAnterior se crea con la listaDeFechas de la que se esta definiendo
+            
             boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+            
             if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
             
             numJornada = (Integer) jorAnterior.getNumero();
+            
             if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
-              
+
+            numJornada++;
             j = new Jornada(numJornada,listaDeFechas);
              
         }
@@ -97,11 +105,12 @@ public class LRACB {
        String nombClubVisitante;
        Jornada jor1 = buscarJornada(numJornada);
        int[] resultadoJorAnterior = new int[4];
+       Jornada jorAnterior;
            
            jor1.anotarResultado(dia,nombClubLocal,puntosLocal,puntosVisi);
            nombClubVisitante = jor1.obtenerNombClubVisitante(dia,nombClubLocal);
            if (numJornada != 1){
-               Jornada jorAnterior = buscarJornada(numJornada-1);
+               jorAnterior = buscarJornada(numJornada-1);
            }
            String[] auxNombClub = new String[2];
            auxNombClub[0] = nombClubLocal;
@@ -110,7 +119,7 @@ public class LRACB {
            for(int i=0; i<1;i++){
              
                 if (numJornada != 1){
-                    resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
+                    //resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
                 }
                 else{ // Primera Jornada
                     int[] resultadoAux = new int[4];
@@ -267,12 +276,15 @@ public class LRACB {
     public void definirPartido(int numJornada, GregorianCalendar dia, String nombClubLocal,
             String nombClubVisi, GregorianCalendar hora, String TVEmite) throws LracbEx{
 
+
             Club cl = buscarClub(nombClubLocal);
             Club cv = buscarClub(nombClubVisi);
+            System.out.print("cl encontrao\n");
+            System.out.print("cv encontra"+ cv.getNombre()+"\n");
             Jornada jor = buscarJornada(numJornada);
+            System.out.print("numJornada "+ jor.getNumero()+ "\n");
             jor.definirPartido(dia, cl, cv, hora, TVEmite);
-   
-        
+         
    }
 
 
