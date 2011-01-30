@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 /**
  *
  * @author Fco Javier Lucena Lucena
@@ -152,7 +153,6 @@ public class GestionLRACB {
                         break;
 
                     case 5:
-
                         System.out.print("Introduce el numero de la Jornada: ");
                         numJornada = Integer.parseInt(in.readLine());
                         System.out.print("Introduce la fecha de la Jornada  \n");
@@ -200,7 +200,14 @@ public class GestionLRACB {
                         System.out.print("Introduce el numero de la Jornada: ");
                         numJornada = Integer.parseInt(in.readLine());
                         ArrayList partidos = ligaACB.verPartidoDeJornada(numJornada);
-                        //imprimir el contenido del ArrayList
+                        ArrayList resultado = new ArrayList();
+
+                        Iterator it = partidos.listIterator();
+                        while (it.hasNext()) {}
+                        //    Map.Entry e = (Map.Entry)it.next();
+                          //  par = (Partido) e.getValue();
+                            //resultado2 = par.datosDelPartido();
+                            //resultado1.add(resultado2);
                         break;
 
                     case 8:
