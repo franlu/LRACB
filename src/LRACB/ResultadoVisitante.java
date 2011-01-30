@@ -50,8 +50,11 @@ class ResultadoVisitante {
     }
 
     boolean participaClub(Club cl, Club cv){
-
-        return true;
+        
+        if (this.club == cl)
+            return true;
+        else
+            return false;
     }
 
 }
