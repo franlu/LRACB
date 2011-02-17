@@ -4,9 +4,11 @@ package GestionLRACB;
 import LRACB.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.String;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.Map;
 /**
  *
  * @author Fco Javier Lucena Lucena
@@ -38,15 +40,24 @@ public class GestionLRACB {
 
     public static void main(String[] args){
 
-
-        LRACB ligaACB = LRACB.getLRACB();
-        int opcion = 0;
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String nombClub, nombJug, nombEntre, dniPas;
-        int anio, mes, dia,numJornada, puntosLocal, puntosVisi;
-        double minutosJug;
-        int intentos, puntos;
+        LRACB             ligaACB = LRACB.getLRACB();
+        BufferedReader    in = new BufferedReader(new InputStreamReader(System.in));
         GregorianCalendar aux = new GregorianCalendar();
+        String            nombClub;
+        String            nombJug;
+        String            nombEntre;
+        String            dniPas;
+        int               opcion = 0;
+        int               anio;
+        int               mes;
+        int               dia;
+        int               numJornada;
+        int               puntosLocal;
+        int               puntosVisi;
+        int               intentos;
+        int               puntos;
+        double            minutosJug;
+        
 
         do{
             try{
@@ -213,8 +224,32 @@ public class GestionLRACB {
                     case 8:
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();
-                        ArrayList jugadores = ligaACB.verJugadoresDeClub(nombClub);
-                        System.out.print(jugadores);
+                        ArrayList   datosJugadores = ligaACB.verJugadoresDeClub(nombClub);
+
+                        System.out.print("\nNombre del Club: " + datosJugadores.get(0));
+                        System.out.print("\n===========================================\n");
+
+                        //datosJugadores.get(1).getClass().isArray()
+                        if (ArrayList.class == datosJugadores.get(1).getClass()){
+                            ArrayList   jugadores = (ArrayList) datosJugadores.get(1);
+                            Iterator    ite = jugadores.listIterator();
+                            ArrayList   jugador = new ArrayList();
+                            while (ite.hasNext()) { // para cada jugador
+                                System.out.print("aaaaaaaaaaaa " + ite.next());
+                                  jugador = (ArrayList) ite.next();
+                                  System.out.print("Nombre: " + jugador.get(0));
+                                  System.out.print("Edad: " + jugador.get(1));
+                                  System.out.print("Altura: " + jugador.get(2));
+                                  System.out.print("Peso: " + jugador.get(3));
+                                  System.out.print("Posicion: " + jugador.get(4));
+                                  System.out.print("Nacionalidad: " + jugador.get(5));
+                                  System.out.print("Numero: " + jugador.get(6));
+                                  System.out.print("\n===========================================\n");
+                                                             
+                            }
+                        }
+                        else
+                            System.out.print(datosJugadores.get(1));
                         break;
 
                     case 9:

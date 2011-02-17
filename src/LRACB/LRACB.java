@@ -1,9 +1,5 @@
 /*
-* LRACB
-*
-* Informacion de la version
-*
-* Fecha
+* @(#)LRACB.java 0.1 01/02/2011
 *
 * Copyright
 */
@@ -19,9 +15,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- *
- * @author Fco Javier Lucena Lucena
- */
+* Implementa el patron singleton.
+*
+* @version 0.1 01/02/2011
+* @author Fco Javier Lucena Lucena
+*/
+
 public class LRACB {
 
     private static LRACB miLRACB = null;
@@ -87,6 +86,19 @@ public class LRACB {
 
     }
 
+    /**
+     * Incluye un nuevo jugador en un club determinado
+     * @param nombClub nombre del club al que pertenecera el jugador
+     * @param dniPas documento de identificacion
+     * @param nomJugador nombre y apellidos
+     * @param fechaNac fecha de nacimiento
+     * @param altura altura del jugador
+     * @param peso kilogramos de peso
+     * @param posicion Situacion del jugador dentro de la pista de juego
+     * @param nacionalidad Lugar de procedencia
+     * @param numero aparecera en la camiseta del jugador
+     * @throws LracbEx
+     */
     public void incluirJugador(String nombClub,String dniPas, String nomJugador,
                        GregorianCalendar fechaNac, double altura, double peso, String posicion,
                        String nacionalidad, int numero) throws LracbEx {
@@ -185,7 +197,11 @@ public class LRACB {
         return (this.Jornadas).get(numJornada);
     }
 
-    // Errata en diagrama diseño
+    /**
+     * Busca un club perteneciente a la liga regular
+     * @param nombClub nombre del club
+     * @return el club
+     */
     private Club buscarClub(String nombClub){ 
 
         return (this.Clubes).get(nombClub);
@@ -215,6 +231,13 @@ public class LRACB {
 
     }
 
+    /**
+     * Recoger la informacion referente a los jugadores de un club
+     * @param nombClub nombre del club
+     * @return informacion sobre los jugadores que pertenecen al club
+     *         en caso de que el club no tenga jugadores se mostrara un
+     *         mensaje informando de esta situacion
+     */
     public ArrayList verJugadoresDeClub(String nombClub){
     
         ArrayList resultado = new ArrayList();
@@ -276,7 +299,6 @@ public class LRACB {
     public void definirPartido(int numJornada, GregorianCalendar dia, String nombClubLocal,
             String nombClubVisi, GregorianCalendar hora, String TVEmite) throws LracbEx{
 
-
             Club cl = buscarClub(nombClubLocal);
             Club cv = buscarClub(nombClubVisi);
             System.out.print("cl encontrao\n");
@@ -287,8 +309,14 @@ public class LRACB {
          
    }
 
-
-    public void incluirClub(String nombre, String entrenador, String pabellon) throws LracbEx {
+   /**
+    * Incluir un nuevo club en la lista de clubes de la liga ACB
+    * @param nombre El nombre del nuevo club
+    * @param entrenador El nombre del entrenador del club
+    * @param pabellon El nombre del lugar donde se celebraran los partidos
+    * @throws LracbEx
+    */
+   public void incluirClub(String nombre, String entrenador, String pabellon) throws LracbEx {
 
         boolean existeC = this.existeClub(nombre);
 
@@ -301,6 +329,12 @@ public class LRACB {
 
     }
 
+   /**
+    * Verificar la existen de un Club
+    * @param nombre representa el nombre del club
+    * @return true si el club esta incluido en la lista de clubes
+    * @return false en caso de no estar incluido
+    */
     private boolean existeClub(String nombre){
 
         return (this.Clubes).containsKey(nombre);

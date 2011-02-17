@@ -107,17 +107,20 @@ class Jugador {
 
     }
 
-    
+    /**
+     * Un listado con los datos del jugador
+     * @return informacion del jugador
+     */
     ArrayList obtenerDatosJugador(){
     
-        ArrayList resultado = new ArrayList();
-        GregorianCalendar fecha = new GregorianCalendar();
-        Date hoy = new Date();//fecha actual
-        fecha.setTime(hoy);
+        ArrayList           resultado = new ArrayList();
+        GregorianCalendar   fecha = new GregorianCalendar();
+        Date                hoy = new Date();//fecha actual
 
+            fecha.setTime(hoy);
             resultado.add(getNombre());
             //Return int edad
-            resultado.add(fecha.get(Calendar.YEAR) - getFechaNac().YEAR);
+            resultado.add(fecha.get(Calendar.YEAR) - getFechaNac().get(Calendar.YEAR));
             resultado.add(getAltura());
             resultado.add(getPeso());
             resultado.add(getPosicion());

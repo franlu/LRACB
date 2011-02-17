@@ -40,33 +40,34 @@ class Club {
 
     }
 
-
+    /**
+     * Recoge informacion sobre los jugadores del club
+     * @return informacion sobre los jugadores del club
+     */
     ArrayList jugadoresDeClub(){
 
-        ArrayList resultado = new ArrayList();
+        ArrayList   resultado = new ArrayList();
 
-        resultado.add(this.nombre);
+            resultado.add(this.nombre);
 
-        if ((this.jugadores).size() == 0) {
+            if ((this.jugadores).size() == 0) {
+                resultado.add("El club no ha fichado jugadores.");
+            }
+            else {
+                Iterator    it = (this.jugadores).entrySet().iterator();
+                ArrayList   datosJugador = new ArrayList();
+                Map.Entry   e;
+                Jugador     ju;
 
-            resultado.add("El club no tiene definidos jugadores");
-
-        }
-        else {
-
-        Iterator it = (this.jugadores).entrySet().iterator();
-        ArrayList datosJugador = new ArrayList();
-        Jugador ju;
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry)it.next();
-            //Comprobar este casting
-            ju = (Jugador) e.getValue();
-            datosJugador = ju.obtenerDatosJugador();
-            resultado.add(datosJugador);
-        }
-        }
-        return resultado;
-
+                while (it.hasNext()) {
+                    e = (Map.Entry)it.next();
+                    ju = (Jugador) e.getValue();
+                    datosJugador = ju.obtenerDatosJugador();
+                    resultado.add(datosJugador);
+                }
+            }
+        
+            return resultado;
     }
     
     //String obtenerNombre(){}
