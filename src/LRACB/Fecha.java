@@ -35,6 +35,12 @@ class Fecha {
 
     }
 
+    /**
+     *
+     * @param ant fecha para comparar
+     * @return true si ant es anterior a fecha
+     *         false en caso contrario
+     */
     boolean esAnterior(GregorianCalendar ant){
 
         int opcion;

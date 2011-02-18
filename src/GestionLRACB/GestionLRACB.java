@@ -4,11 +4,9 @@ package GestionLRACB;
 import LRACB.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.String;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
-import java.util.Map;
 /**
  *
  * @author Fco Javier Lucena Lucena
@@ -90,8 +88,8 @@ public class GestionLRACB {
                         }
 
                         ligaACB.definirJornada(listaDeFechas);
-                        System.out.print("La Jornada ha sido definida correctamente.");
-                        System.out.println();
+                        System.out.print("La Jornada ha sido definida correctamente.\n");
+                        
                         break;
 
                     case 2:
@@ -102,8 +100,7 @@ public class GestionLRACB {
                         System.out.print("Introduce el nombre del Pabellon :  ");
                         String nombPab = in.readLine();
                         ligaACB.incluirClub(nombClub, nombEntre, nombPab);
-                        System.out.print("El club se ha añadido a la liga.");
-                        System.out.println();
+                        System.out.print("El club se ha añadido a la liga.\n");
                         break;
 
                     case 3:
@@ -132,8 +129,7 @@ public class GestionLRACB {
                         System.out.print("Introduce el numero :  ");
                         int num = Integer.parseInt(in.readLine());
                         ligaACB.incluirJugador(nombClub, dniPas , nombJug, aux, altura , peso, posicion, nacionalidad, num);
-                        System.out.print("El " + nombClub + " ha fichado un nuevo Jugador.");
-                        System.out.println();
+                        System.out.print("El " + nombClub + " ha fichado un nuevo Jugador.\n");
                         break;
 
                     case 4:
