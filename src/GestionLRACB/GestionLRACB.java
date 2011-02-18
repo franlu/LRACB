@@ -225,26 +225,24 @@ public class GestionLRACB {
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();
                         ArrayList   datosJugadores = ligaACB.verJugadoresDeClub(nombClub);
-
+                        ArrayList   jugador;
+                        
                         System.out.print("\nNombre del Club: " + datosJugadores.get(0));
                         System.out.print("\n===========================================\n");
 
-                        //datosJugadores.get(1).getClass().isArray()
                         if (ArrayList.class == datosJugadores.get(1).getClass()){
-                            ArrayList   jugadores = (ArrayList) datosJugadores.get(1);
-                            Iterator    ite = jugadores.listIterator();
-                            ArrayList   jugador = new ArrayList();
-                            while (ite.hasNext()) { // para cada jugador
-                                System.out.print("aaaaaaaaaaaa " + ite.next());
-                                  jugador = (ArrayList) ite.next();
-                                  System.out.print("Nombre: " + jugador.get(0));
-                                  System.out.print("Edad: " + jugador.get(1));
-                                  System.out.print("Altura: " + jugador.get(2));
-                                  System.out.print("Peso: " + jugador.get(3));
-                                  System.out.print("Posicion: " + jugador.get(4));
-                                  System.out.print("Nacionalidad: " + jugador.get(5));
-                                  System.out.print("Numero: " + jugador.get(6));
-                                  System.out.print("\n===========================================\n");
+                            
+                            for(int i = 1; i < datosJugadores.size();i++){
+                                // para cada jugador
+                                jugador = (ArrayList) datosJugadores.get(i);
+                                System.out.print("Nombre: " + jugador.get(0));
+                                System.out.print("\nEdad: " + jugador.get(1) + " años");
+                                System.out.print("\nAltura: " + jugador.get(2) + " m");
+                                System.out.print("\nPeso: " + jugador.get(3) + " Kg");
+                                System.out.print("\nPosicion: " + jugador.get(4));
+                                System.out.print("\nNacionalidad: " + jugador.get(5));
+                                System.out.print("\nNumero: " + jugador.get(6));
+                                System.out.print("\n===========================================\n");
                                                              
                             }
                         }

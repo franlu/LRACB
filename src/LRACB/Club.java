@@ -66,7 +66,7 @@ class Club {
                     resultado.add(datosJugador);
                 }
             }
-        
+            
             return resultado;
     }
     
