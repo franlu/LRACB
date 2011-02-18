@@ -28,7 +28,6 @@ class Club {
 
     //void crear(String nombre, String entrenador, String pabellon )
     Club(String nombre, String entrenador, String pabellon){
-
         setNombre(nombre);
         setEntrenador(entrenador);
         setPabellon(pabellon);
@@ -107,7 +106,4 @@ class Club {
         this.pabellon = pabellon;
 
     }
-
-    
-    
 }
