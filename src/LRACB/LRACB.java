@@ -32,24 +32,28 @@ public class LRACB {
     private LRACB(){}
 
     public  static LRACB  getLRACB(){
-    if(miLRACB==null)
-         miLRACB = new LRACB();
-    return miLRACB;
-  }
+        if(miLRACB==null)
+            miLRACB = new LRACB();
+        return miLRACB;
+    }
 
-
-    private Jornada obtenerUltimaJornada(){
+    /**
+     * Recuperar la ultima jornada definida en la liga regular
+     * @return ultima jornada definida
+     *         null, si hay jornadas definidas
+     */
+     private Jornada obtenerUltimaJornada(){
 
         Iterator it = (this.Jornadas).entrySet().iterator();
         Jornada j = null;
-        while (it.hasNext()) {
-           Map.Entry e = (Map.Entry)it.next();
-           j = (Jornada) e.getValue();
-        }
-        
-        return j;
-    }
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry)it.next();
+                j = (Jornada) e.getValue();
+            }
 
+        return j;
+            
+    }
     
     public void definirJornada(GregorianCalendar[] listaDeFechas) throws LracbEx{
         
@@ -57,32 +61,33 @@ public class LRACB {
         Integer numJornada;
         Jornada j;
 
-        
         //Si no hay jornadas definidas
-        if (jorAnterior != null){
-            
+        if (jorAnterior == null){
             // esAnterior petaaaaaaaaaaaaa
             // jorAnterior se crea con la listaDeFechas de la que se esta definiendo
-            
+            //crear la primera Jornada
+            numJornada = 1;
+            j = new Jornada(numJornada,listaDeFechas);
+            System.out.print("JorAnterior es igual a null\n");
+             
+        }
+        else{
+            System.out.print("JorAnterior es distinto de null\n");
             boolean anterior = jorAnterior.esAnterior(listaDeFechas);
-            
+
             if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
-            
+
             numJornada = (Integer) jorAnterior.getNumero();
-            
+
             if (numJornada == 34) throw new LracbEx("Ya estan definidas las 34 Jornadas.");
 
             numJornada++;
             j = new Jornada(numJornada,listaDeFechas);
-             
-        }
-        else{
-            //crear la primera Jornada
-            numJornada = 1;
-            j = new Jornada(numJornada,listaDeFechas);
         }
        
         (this.Jornadas).put(numJornada, j);
+        System.out.print("numero de la Jornada creada "+j.getNumero());
+        System.out.print("tamaño de Jornadas "+this.Jornadas.size());
 
     }
 
