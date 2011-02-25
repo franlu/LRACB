@@ -145,14 +145,23 @@ class Jornada {
 
     }
 
+    /**
+     *
+     * @param dia parametro a buscar
+     * @return Fecha si son iguales
+     *         null si son distintos
+     */
     private Fecha buscarFecha(GregorianCalendar dia){
 
-        Fecha f = null;
+        Fecha       f = null;
+        Iterator    itList= getFechas().iterator();
+        boolean     encontrado = false;
 
-        /**for(int i=0; i<(this.fecha).length; i++){
-             if ((this.fecha)[i].getDia().compareTo(dia) == 0)
-                 f = (this.fecha)[i];
-        }*/
+            while(itList.hasNext() && !encontrado){
+                f = (Fecha) itList.next();
+                if (f.getDia().compareTo(dia) == 0)
+                    encontrado = true;
+            }
         
         return f;
 
@@ -251,27 +260,30 @@ class Jornada {
         //Collections.sort(cjs);
 
 
-    }
+     }
     void anotarResultadoJugador(Calendar dia,String nombClubLocal, String dniPas,
                                 double minutosJugados, int intentos, int puntosConseguidos){}
     void incluirClasificacion(Jugador jug, double minutosTotales, int intentosTotales, int puntosTotales){}
     
     void definirPartido(GregorianCalendar dia, Club cl, Club cv, GregorianCalendar hora,String TVEmite) throws LracbEx{
 
-        boolean participa = false;
-        Fecha f1,f2;
-        /**
-        for(int i=0; i<(this.fecha).length && !participa; i++){
-            f1 = new Fecha(this.fecha[i].getDia());
-            System.out.print("antes llamar participaPartido\n");
-            participa = f1.participaPartido(cl,cv);
-            System.out.print("despues llamar participaPartido\n");
-            if (participa) throw new LracbEx("alguno de los club ya participa en otro partido de esa jornada");
-        }
-        System.out.print("1_jornada.definirPartido\n");
+        boolean     participa = false;
+        Fecha       f1;
+        Fecha       f2;
+        Iterator    itList= getFechas().iterator();
+            
+            while(itList.hasNext() && !participa){
+                f1 = (Fecha) itList.next();
+                participa = f1.participaPartido(cl,cv);
+                if (participa) throw new LracbEx("alguno de los club ya participa en otro partido de esa jornada");
+            //System.out.print("antes llamar participaPartido\n");
+            //System.out.print("despues llamar participaPartido\n");
+            }
+        System.out.print("definirPartido_antes buscardia\n");
         f2 = buscarFecha(dia);
+        if (f2 == null) throw new LracbEx("No se ha definido jornada para este dia.\n");
         f2.definirPartido(cl, cv, hora, TVEmite);
-        System.out.print("2__jornada.definirPartido\n");*/
+        System.out.print("f2 de jornada ha ejecutao definirPartido OK\n");
     }
 
 }

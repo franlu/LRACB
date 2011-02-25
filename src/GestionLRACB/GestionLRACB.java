@@ -133,30 +133,30 @@ public class GestionLRACB {
                         break;
 
                     case 4:
-                        System.out.print("Introduce el numero de la Jornada: ");
+                        System.out.print("Introduce el numero de la Jornada:\n");
                         numJornada = Integer.parseInt(in.readLine());
-                        System.out.print("Introduce la fecha de la Jornada  \n");
-                            System.out.print("Indica el Dia \n");
+                        System.out.print("Introduce la fecha de la Jornada:\n");
+                            System.out.print("Dia \n");
                             dia = Integer.parseInt(in.readLine());
-                            System.out.print("Indica el Mes \n");
+                            System.out.print("Mes \n");
                             mes = Integer.parseInt(in.readLine());
-                            System.out.print("Indica el Año \n");
+                            System.out.print("Año \n");
                             anio = Integer.parseInt(in.readLine());
                             aux.set(anio,mes,dia);
-                        System.out.print("Introduce el nombre del Club Local:  ");
+                        System.out.print("Introduce el nombre del Club Local:\n");
                         nombClub = in.readLine();
-                        System.out.print("Introduce el nombre del Club Visitante:  ");
+                        System.out.print("Introduce el nombre del Club Visitante:\n");
                         String nombClubVisi = in.readLine();
-                        System.out.print("Introduce la hora del Partido:  ");
-                            System.out.print("Hora:  ");
+                        System.out.print("Introduce la hora del Partido:\n");
+                            System.out.print("Hora:\n");
                             int hora = Integer.parseInt(in.readLine());
                             System.out.print("Minutos:  ");
                             int minutos = Integer.parseInt(in.readLine());
                             aux.set(anio,mes,dia,hora,minutos);
-                        System.out.print("Indica la TV que emite el partido:  ");
+                        System.out.print("Indica la TV que emite el partido:\n");
                         String tv = in.readLine();
                         ligaACB.definirPartido(numJornada, aux, nombClub, nombClubVisi, aux, tv);
-                        System.out.print("Definido un nuevo partido para la jornada " + numJornada + "\n");
+                        System.out.print("Partido establecido para la jornada " + numJornada + " \n");
                         break;
 
                     case 5:

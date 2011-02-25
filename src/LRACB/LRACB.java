@@ -310,12 +310,10 @@ public class LRACB {
     public void definirPartido(int numJornada, GregorianCalendar dia, String nombClubLocal,
             String nombClubVisi, GregorianCalendar hora, String TVEmite) throws LracbEx{
 
-            Club cl = buscarClub(nombClubLocal);
-            Club cv = buscarClub(nombClubVisi);
-            System.out.print("cl encontrao\n");
-            System.out.print("cv encontra"+ cv.getNombre()+"\n");
-            Jornada jor = buscarJornada(numJornada);
-            System.out.print("numJornada "+ jor.getNumero()+ "\n");
+            Club        cl = buscarClub(nombClubLocal);
+            Club        cv = buscarClub(nombClubVisi);
+            Jornada     jor = buscarJornada(numJornada);
+            
             jor.definirPartido(dia, cl, cv, hora, TVEmite);
          
    }

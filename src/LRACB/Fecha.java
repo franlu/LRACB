@@ -114,8 +114,8 @@ class Fecha {
     // Errata en DCDiseño
     boolean participaPartido(Club cl, Club cv){
 
-       Boolean participa = false;//Si no hay partidos return false
-       Partido par;
+       Boolean  participa = false;//Si no hay partidos return false
+       Partido  par;
 
             Iterator it = (this.Partidos).entrySet().iterator();
             while (it.hasNext() && !participa) {
@@ -127,22 +127,35 @@ class Fecha {
        return participa;
 
     }
-    
-    
+
+    /**
+     * Se encarga de crear un partido y añadirlo al conjunto de partidos para esta fecha
+     * @param cl nombre del club local
+     * @param cv nombre del club visitante
+     * @param hora de la emision del partido
+     * @param TVEmite nombre del canal de television que emite el partido
+     */
     void definirPartido(Club cl, Club cv, GregorianCalendar hora, String TVEmite){
         
         Partido par = new Partido(cl,cv,hora,TVEmite);
         
             (this.Partidos).put(hora, par);
-            
     }
 
+    /**
+     * Establece el dia para la fecha
+     * @param dia contiene los datos para establecer la fecha
+     */
     void setDia(GregorianCalendar dia){
 
        this.dia = dia;
 
     }
 
+    /**
+     * Consulta el dia para la fecha
+     * @return el dia de esta fecha
+     */
     GregorianCalendar getDia(){
 
        return this.dia;
