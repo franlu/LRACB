@@ -36,16 +36,14 @@ class Fecha {
     }
 
     /**
-     *
+     *Determina si una fecha es anterior a la del propio objeto la invoca
      * @param ant fecha para comparar
-     * @return true si ant es anterior a fecha
+     * @return true si el objeto fecha es anterior a ant
      *         false en caso contrario
      */
     boolean esAnterior(GregorianCalendar ant){
-
-        int opcion;
-        opcion = dia.compareTo(ant);
-
+        
+        int opcion = this.dia.compareTo(ant);
         if (opcion < 0)
             return true;
         else

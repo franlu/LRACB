@@ -65,11 +65,11 @@ public class GestionLRACB {
                 switch (opcion){
                 
                     case 1:
-                        System.out.print("¿Durante cuantos dias se celebra la jornada? ");
+                        System.out.print("¿Durante cuantos dias se celebra la jornada?\n");
                         int dias = Integer.parseInt(in.readLine());
 
                         while (dias<1 || dias>3){
-                            System.out.print("Minimo Uno, Maximo tres :)");
+                            System.out.print("Minimo Uno, Maximo 3 :)\n");
                             dias = Integer.parseInt(in.readLine());
                         }
                        

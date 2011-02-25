@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,7 +25,7 @@ import java.util.Map;
 class Jornada {
 
     private int numJornada;
-    private Fecha[] fecha = new Fecha[3];
+    private List fecha = new ArrayList();
     //key nombre del club compareTo en clase clasficacion con partidos Ganados
     private Map<String,ClasificacionClub> cClub = new HashMap<String,ClasificacionClub>();
     //key nombreJugador no double rendimiento
@@ -38,19 +39,38 @@ class Jornada {
 
     }
 
+    /**
+     * Comprueba si una lista de fechas es anterior a las fechas en las que se celebra
+     * la jornada actual
+     * @param listaDeFechas
+     * @return true si listaDeFechas es anterior a las Fechas de la Jornada actual
+     *         false en otro caso
+     */
     boolean esAnterior(GregorianCalendar[] listaDeFechas){
 
         //recorrer las fechas que hay en fecha y compararlas con cada gregorian calendar
-        GregorianCalendar f,fj;
-        boolean anterior = false;
+        boolean anterior = false;// las fechas no son anteriores a la actual
+        GregorianCalendar dia;
+        Fecha f ;
+      
+        for(int i=0; i<listaDeFechas.length && !anterior ; i++){
+            dia = listaDeFechas[i];
+            System.out.print("dia en lista fechas = "+ dia.get(Calendar.DAY_OF_MONTH) +"_\n");
+            System.out.print("mes en lista fechas = "+ dia.get(Calendar.MONTH) +"_\n");
+            System.out.print("año en lista fechas = "+ dia.get(Calendar.YEAR) +"__\n");
 
-        for(int i=0; i<listaDeFechas.length && !anterior; i++){
-            f = listaDeFechas[i];
-            anterior = (this.fecha[i]).esAnterior(f);
-            
+           Iterator itList= getFechas().iterator();
+            while(itList.hasNext() && !anterior){
+                f = (Fecha) itList.next();
+                System.out.print("antes del casting = "+ f.getDia().get(Calendar.DAY_OF_MONTH) +"_\n");
+                System.out.print("mes = "+ f.getDia().get(Calendar.MONTH) +"_\n");
+                System.out.print("año= "+ f.getDia().get(Calendar.YEAR) +"__\n");
+                anterior = f.esAnterior(dia);
+                System.out.print("bucle whilejornada..esanterior__"+ anterior+"__");
+            }
+
         }
         return anterior;
-
     }
 
     //int obtenerNumero(){
@@ -59,7 +79,7 @@ class Jornada {
         return this.numJornada;
     }
 
-    Fecha[] getFechas(){
+    List getFechas(){
 
         return this.fecha;
      }
@@ -74,7 +94,8 @@ class Jornada {
         GregorianCalendar dia;
         for(int i=0; i<listaDeFechas.length; i++){
             dia = listaDeFechas[i];
-            this.fecha[i] = new Fecha(dia);
+            Fecha f = new Fecha(dia);
+            this.fecha.add(f);
         }
 
     }
@@ -117,7 +138,7 @@ class Jornada {
         int i =0;
             resultado.add(this.numJornada);
             //recorrer cada fecha []
-            resultado1 = (this.fecha)[i].resultadoJugadores(dia, nombClubLocal);
+           // resultado1 = (this.fecha)[i].resultadoJugadores(dia, nombClubLocal);
             resultado.add(resultado1);
 
             return resultado;
@@ -128,10 +149,10 @@ class Jornada {
 
         Fecha f = null;
 
-        for(int i=0; i<(this.fecha).length; i++){
+        /**for(int i=0; i<(this.fecha).length; i++){
              if ((this.fecha)[i].getDia().compareTo(dia) == 0)
                  f = (this.fecha)[i];
-        }
+        }*/
         
         return f;
 
@@ -149,11 +170,11 @@ class Jornada {
         ArrayList resultado1 = new ArrayList();
         Fecha fech;
         resultado.add(getNumero());
-        for(int i=0; i<fecha.length; i++){
+        /**for(int i=0; i<fecha.length; i++){
             fech = fecha[i];
             resultado1 = fech.partidosDeUnDia();
             resultado.add(resultado1);
-        }
+        }*/
         return resultado;
 
     }
@@ -239,7 +260,7 @@ class Jornada {
 
         boolean participa = false;
         Fecha f1,f2;
-        
+        /**
         for(int i=0; i<(this.fecha).length && !participa; i++){
             f1 = new Fecha(this.fecha[i].getDia());
             System.out.print("antes llamar participaPartido\n");
@@ -250,7 +271,7 @@ class Jornada {
         System.out.print("1_jornada.definirPartido\n");
         f2 = buscarFecha(dia);
         f2.definirPartido(cl, cv, hora, TVEmite);
-        System.out.print("2__jornada.definirPartido\n");
+        System.out.print("2__jornada.definirPartido\n");*/
     }
 
 }

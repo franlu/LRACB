@@ -8,9 +8,11 @@
 package LRACB;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -57,25 +59,33 @@ public class LRACB {
     
     public void definirJornada(GregorianCalendar[] listaDeFechas) throws LracbEx{
         
-        Jornada jorAnterior = obtenerUltimaJornada();
-        Integer numJornada;
-        Jornada j;
+        Jornada     jorAnterior = obtenerUltimaJornada();
+        Integer     numJornada;
+        Jornada     j;
 
         //Si no hay jornadas definidas
         if (jorAnterior == null){
-            // esAnterior petaaaaaaaaaaaaa
-            // jorAnterior se crea con la listaDeFechas de la que se esta definiendo
-            //crear la primera Jornada
-            numJornada = 1;
-            j = new Jornada(numJornada,listaDeFechas);
+            Jornada j1 = new Jornada(1,listaDeFechas);
+            (this.Jornadas).put(1, j1);
             System.out.print("JorAnterior es igual a null\n");
              
         }
         else{
-            System.out.print("JorAnterior es distinto de null\n");
-            boolean anterior = jorAnterior.esAnterior(listaDeFechas);
 
-            if (anterior) throw new LracbEx("Fechas anteriores a las de la jornada anterior");
+            System.out.print("JorAnterior es distinto de null\n");
+            List fec = jorAnterior.getFechas();
+            Fecha f1;
+            Iterator itList= fec.iterator();
+            while(itList.hasNext()){
+                f1 = (Fecha) itList.next();
+                System.out.print("de la primera jornada = "+ f1.getDia().get(Calendar.DAY_OF_MONTH) +"_\n");
+                System.out.print("mes = "+ f1.getDia().get(Calendar.MONTH) +"_\n");
+                System.out.print("año= "+ f1.getDia().get(Calendar.YEAR) +"__\n");
+            }
+
+            //boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+            
+            //if (!anterior) throw new LracbEx("Las Fechas son anteriores a las de la ultima jornada.");
 
             numJornada = (Integer) jorAnterior.getNumero();
 
@@ -83,12 +93,8 @@ public class LRACB {
 
             numJornada++;
             j = new Jornada(numJornada,listaDeFechas);
+            (this.Jornadas).put(numJornada, j);
         }
-       
-        (this.Jornadas).put(numJornada, j);
-        System.out.print("numero de la Jornada creada "+j.getNumero());
-        System.out.print("tamaño de Jornadas "+this.Jornadas.size());
-
     }
 
     /**
