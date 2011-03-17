@@ -209,14 +209,6 @@ public class GestionLRACB {
                         ArrayList partidos = ligaACB.verPartidoDeJornada(numJornada);
                         ArrayList resultado = new ArrayList();
 
-                        Iterator it = partidos.listIterator();
-                        while (it.hasNext()) {}
-                        //    Map.Entry e = (Map.Entry)it.next();
-                          //  par = (Partido) e.getValue();
-                            //resultado2 = par.datosDelPartido();
-                            //resultado1.add(resultado2);
-                        break;
-
                     case 8:
                         System.out.print("Introduce el nombre del Club:  ");
                         nombClub = in.readLine();

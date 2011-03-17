@@ -78,14 +78,12 @@ public class LRACB {
             Iterator itList= fec.iterator();
             while(itList.hasNext()){
                 f1 = (Fecha) itList.next();
-                System.out.print("de la primera jornada = "+ f1.getDia().get(Calendar.DAY_OF_MONTH) +"_\n");
-                System.out.print("mes = "+ f1.getDia().get(Calendar.MONTH) +"_\n");
-                System.out.print("año= "+ f1.getDia().get(Calendar.YEAR) +"__\n");
+                
             }
 
-            //boolean anterior = jorAnterior.esAnterior(listaDeFechas);
+            boolean anterior = jorAnterior.esAnterior(listaDeFechas);
             
-            //if (!anterior) throw new LracbEx("Las Fechas son anteriores a las de la ultima jornada.");
+            if (!anterior) throw new LracbEx("Las Fechas son anteriores a las de la ultima jornada.");
 
             numJornada = (Integer) jorAnterior.getNumero();
 
@@ -142,7 +140,7 @@ public class LRACB {
            for(int i=0; i<1;i++){
              
                 if (numJornada != 1){
-                    //resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
+                    resultadoJorAnterior = jorAnterior.obternerResultado((String)auxNombClub[i]);
                 }
                 else{ // Primera Jornada
                     int[] resultadoAux = new int[4];
@@ -191,7 +189,7 @@ public class LRACB {
                 jor1.definirClasificacionClub(club,ganados,perdidos,puntosAFavor,puntosEnContra);
            }//for
     }
-    //Gregorian Calendar dia, lo dice la profe
+    //Gregorian Calendar dia
     public ArrayList resultadoJugadores(int numJornada, GregorianCalendar dia, String nombClubLocal){
         
         ArrayList resultado1;
@@ -219,8 +217,7 @@ public class LRACB {
 
     }
 
-    //true si existe
-    //false si no existe
+    
     private boolean existeJugador(String dniPas){
 
         return (this.Jugadores).containsKey(dniPas);

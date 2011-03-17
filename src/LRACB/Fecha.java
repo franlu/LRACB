@@ -75,7 +75,7 @@ class Fecha {
 
     }
     private Partido buscarPartido(String nombClubLocal){
-    //pendiente de hacer
+    
         Partido par = null;
         return par;
 
@@ -123,7 +123,7 @@ class Fecha {
                 par = (Partido) e.getValue();
                 participa = par.participaClub(cl, cv);
             }
-            System.out.print("participa en fecha.participaPartido:  " + participa+ "___");
+            
        return participa;
 
     }

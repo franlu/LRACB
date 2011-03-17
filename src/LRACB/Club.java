@@ -26,7 +26,7 @@ class Club {
 
     private Map<String,Jugador> jugadores = new HashMap<String,Jugador>();
 
-    //void crear(String nombre, String entrenador, String pabellon )
+    
     Club(String nombre, String entrenador, String pabellon){
         setNombre(nombre);
         setEntrenador(entrenador);
@@ -69,7 +69,7 @@ class Club {
             return resultado;
     }
     
-    //String obtenerNombre(){}
+   
     String getNombre(){
 
         return this.nombre;
@@ -82,7 +82,7 @@ class Club {
 
     }
 
-    //String obtenerPabellon(){}
+    
     String getPabellon(){
 
         return this.pabellon;

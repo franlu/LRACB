@@ -73,7 +73,7 @@ class Jornada {
         return anterior;
     }
 
-    //int obtenerNumero(){
+  
     int getNumero(){
 
         return this.numJornada;
@@ -179,11 +179,11 @@ class Jornada {
         ArrayList resultado1 = new ArrayList();
         Fecha fech;
         resultado.add(getNumero());
-        /**for(int i=0; i<fecha.length; i++){
+        for(int i=0; i<fecha.length; i++){
             fech = fecha[i];
             resultado1 = fech.partidosDeUnDia();
             resultado.add(resultado1);
-        }*/
+        }
         return resultado;
 
     }
@@ -254,7 +254,7 @@ class Jornada {
     //DC rankingAnotadores ----- ordenar Map por key no se puede porque la key es String
     private void ordenarPorRendimiento(){
 
-        //Dejara un documento en swad
+        //documento en swad
         //List cjs = (this.cJugador).values();
         //Collections cjs =
         //Collections.sort(cjs);
@@ -276,8 +276,6 @@ class Jornada {
                 f1 = (Fecha) itList.next();
                 participa = f1.participaPartido(cl,cv);
                 if (participa) throw new LracbEx("alguno de los club ya participa en otro partido de esa jornada");
-            //System.out.print("antes llamar participaPartido\n");
-            //System.out.print("despues llamar participaPartido\n");
             }
         System.out.print("definirPartido_antes buscardia\n");
         f2 = buscarFecha(dia);
